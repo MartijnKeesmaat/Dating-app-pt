@@ -30,7 +30,9 @@ express()
   .set('views', 'view')
   .get('/', movies)
   .post('/', upload.single('cover'), add)
-  .get('/add', form)
+  .get('/login', login)
+  .get('/about', about)
+//   .get('/login', login)
   .get('/:id', movie)
   .delete('/:id', remove)
   .use(notFound)
@@ -39,6 +41,14 @@ express()
 function movies(req, res) {
   res.render('list.ejs', {data: data})
 }
+
+function about(req, res) {
+    res.render('about.ejs')
+}
+
+// function login(req, res) {
+//     res.render('login.ejs')
+// }
 
 function movie(req, res, next) {
   var id = req.params.id
@@ -54,8 +64,8 @@ function movie(req, res, next) {
   res.render('detail.ejs', {data: movie})
 }
 
-function form(req, res) {
-  res.render('add.ejs')
+function login(req, res) {
+  res.render('login.ejs')
 }
 
 function add(req, res) {
