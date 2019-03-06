@@ -1,16 +1,5 @@
 * { box-sizing: border-box }
 
-body {
-  font-family: sans-serif;
-  background: black;
-  color: white;
-  max-width: 36em;
-  margin: 0 auto
-}
-
-a {
-  color: lime
-}
 
 label, input, textarea, button { margin: 1em 0 }
 
@@ -32,3 +21,59 @@ img {
   background: red;
   color: white
 }
+
+/*#region COMMON STYLES*/
+
+/*importing google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300');
+
+body {
+  color: #333333;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+main {
+  padding: 30px 100px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Abril Fatface', cursive;
+}
+
+a {
+  cursor: pointer;
+  color: #4CCABA;
+  transition: color .1s linear;
+}
+
+a:hover {
+  color: #93dfd5;
+}
+
+/*#endregion COMMON STYLES*/
+
+/*#region NAVBAR*/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  border-bottom: 1px solid #efefef;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+nav ul li:first-child {
+  margin-right: 20px;
+}
+
+nav h1 {
+  margin: 0;
+}
+
+/*#endregion NAVBAR*/
