@@ -20,7 +20,7 @@ input, textarea { width: 100% }
 /*#region COMMON STYLES*/
 
 /*importing google fonts*/
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:300');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:100');
 
 body {
   color: #333333;
@@ -84,8 +84,12 @@ nav ul {
   display: flex;
 }
 
-nav ul li:first-child {
+nav ul li {
   margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
 }
 
 .nav-title {
@@ -252,3 +256,51 @@ nav ul li:first-child {
 }
 
 /*#endregion NOT FOUND*/
+
+/*#region FOOTER*/
+
+footer {
+  background: linear-gradient(to left, #B2E8E1, #4CCABA);
+  padding: 30px 100px;
+  color: white;
+}
+
+footer > div {
+  display: flex;
+}
+
+footer > div > p {
+  flex-basis: 65%;
+}
+
+footer > div > ul {
+  flex-basis: 35%;
+}
+
+.footer-links {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer ul a {
+  color: white;
+  transition: color .2s linear;
+}
+
+footer ul a:hover {
+  color: rgba(255,255,255,0.7);
+}
+
+footer small {
+  border-top: 1px solid rgba(255,255,255,0.7);
+  display: block;
+  margin-top: 50px;
+  text-align: center;
+  padding-top: 30px;
+}
+/*#endregion FOOTER*/

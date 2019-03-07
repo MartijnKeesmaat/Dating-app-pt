@@ -7,21 +7,10 @@ var bodyParser = require('body-parser')
 var multer = require('multer')
 
 var data = [
-  {
-    id: 'evil-dead',
-    title: 'Evil Dead',
-    plot: 'Five friends travel to a cabin in the woods, where they unknowingly release flesh-possessing demons.',
-    description: 'Five friends head to a remote cabin, where the discovery of a Book of the Dead leads them to unwittingly summon up demons living in the nearby woods. The evil presence possesses them until only one is left to fight for survival.'
-  },
-  {
-    id: 'the-shawshank-redemption',
-    title: 'The Shawshank Redemption',
-    plot: 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.',
-    description: 'Andy Dufresne is a young and successful banker whose life changes drastically when he is convicted and sentenced to life imprisonment for the murder of his wife and her lover. Set in the 1940’s, the film shows how Andy, with the help of his friend Red, the prison entrepreneur, turns out to be a most unconventional prisoner.'
-  }
+    {
+        name: 'Artemis'
+    }
 ]
-
-var upload = multer({dest: 'static/upload/'})
 
 express()
   .use(express.static('static'))
@@ -30,6 +19,8 @@ express()
   .set('views', 'view')
   .get('/', home)
   .get('/login', login)
+  .post('/form', form)
+  .get('/member', member)
   .get('/about', about)
   .use(notFound)
   .listen(8000)
@@ -43,7 +34,20 @@ function about(req, res) {
 }
 
 function login(req, res) {
-  res.render('login.ejs')
+  res.render('login-signup.ejs')
+}
+
+function form(req, res) {   
+
+    data.push({
+        name: req.body.name
+    })
+
+    res.redirect('/member')
+}
+
+function member(req, res) {
+    res.render('member.ejs', {data: data})
 }
 
 function notFound(req, res) {

@@ -1,0 +1,18 @@
+<% include head.ejs %>
+<title>Dating app - about</title>
+
+<!--navbar-->
+<% include header.ejs %>
+
+<!--Body-->
+<main>
+    <% console.log(data) %>
+    
+    <% for (var index = 0; index < data.length; index++) { %>
+        <h1><%= data[index].name %></h1>
+    <% } %>
+</main>
+
+
+<!--Script tags-->
+<% include tail.ejs %>

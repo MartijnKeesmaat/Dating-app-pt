@@ -1,31 +1,9 @@
-<% include head.ejs %>
-<title>Dating app - login</title>
 
-<!--navbar-->
-<% include header.ejs %>
-
-<!--Body-->
-<main class="login-main">
-    <section class="login-tile">
-        <div class="login-tile-flex">
-            <img class="login-tile-img" src="/img/couple-gradient.jpg">
-            <section class="login-form">
-                <h2>Login</h2>
-                <form>
-                    <div>
-                        <input type="email" placeholder="E-mail">
-                        <input type="password" placeholder="Password">
-                    </div>
-                    <button type="submit">Log in</button>
-                </form>
-            </section>
-        </div>
-        
-    </section>
-    
-    
-</main>
-
-
-<!--Script tags-->
-<% include tail.ejs %>
+<h2>Login</h2>
+<form action=/form method=post enctype=multipart/form-data>
+    <div>
+        <input name=username placeholder="Username">
+        <input type="password" placeholder="Password">
+    </div>
+    <button>Log in</button>
+</form>
