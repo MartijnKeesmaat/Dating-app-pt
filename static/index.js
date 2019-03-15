@@ -23,5 +23,7 @@ function onremove(ev) {
 
   function onfail() {
     throw new Error('Could not delete!')
-  }
+    var error = document.getElementById('js-error');
+    error.classList.add('display');
+    }
 }

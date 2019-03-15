@@ -339,3 +339,17 @@ footer small {
   padding-top: 30px;
 }
 /*#endregion FOOTER*/
+
+/*#region REMOVE*/
+
+.js-delete {
+  color: red;
+  font-weight: bold;
+  display: none;
+}
+
+.display {
+  display: block!important;
+}
+
+/*#endregion REMOVE*/
