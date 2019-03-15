@@ -1,6 +1,3 @@
-/* eslint-env browser */
-/* eslint-disable semi */
-
 var remove = document.getElementById('js-remove')
 
 if (remove) {
@@ -11,6 +8,7 @@ function onremove(ev) {
   var node = ev.target
   var id = node.dataset.id
 
+  // returns a promise
   fetch('/' + id, {method: 'delete'})
     .then(onresponse)
     .then(onload, onfail)
