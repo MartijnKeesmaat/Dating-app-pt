@@ -40,7 +40,7 @@ function login(req, res) {
 function form(req, res) {   
 
     data.push({
-        name: req.body.name
+        name: req.body.username
     })
 
     res.redirect('/member')
