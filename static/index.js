@@ -7,23 +7,16 @@ if (remove) {
 function onremove(ev) {
   var node = ev.target
   var id = node.dataset.id
+  var res = new XMLHttpRequest()
 
-  // returns a promise
-  fetch('/' + id, {method: 'delete'})
-    .then(onresponse)
-    .then(onload, onfail)
-
-  function onresponse(res) {
-    return res.json()
-  }
+  res.open("DELETE", "/" + id)
+  res.onload = onload;
+  res.send();
 
   function onload() {
+    if (res.status !== 200) {
+      throw new Error("Can't remove user")
+    }
     window.location = '/'
   }
-
-  function onfail() {
-    throw new Error('Could not delete!')
-    var error = document.getElementById('js-error');
-    error.classList.add('display');
-    }
 }

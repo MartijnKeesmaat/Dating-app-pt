@@ -3,8 +3,8 @@
 var express = require('express')
 var bodyParser = require('body-parser')
 var multer = require('multer')
-var request = require('request');
-var routes = require('./routes');
+var request = require('request')
+var routes = require('./routes')
 
 var upload = multer({dest: 'static/upload/'})
 
@@ -18,7 +18,6 @@ express()
   .post('/add', upload.single('profile'), routes.form)
   .get('/:id', routes.profile)
   .delete('/:id', routes.remove)
-  .get('/about', routes.about)
   .use(notFound)
   .listen(8000)
 

@@ -27,7 +27,7 @@
         
     <section class="grid">
         <% for (var index = 0; index < data.length; index++) { %>
-            <a class="tile" href="<%= '/' + data[index].id %>">
+            <a class="tile" href="<%= data[index]._id %>">
                 <% if (data[index].profile) { %>
                     <img alt="<%= data[index].firstname %>" src="/upload/<%= data[index].profile %>">
                 <% } %>
