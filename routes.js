@@ -18,12 +18,8 @@ exports.home = function(req, res, next) {
     db.collection('profile').find().toArray(done)
   
     function done(err, data) {
-      if (err) {
-        next(err)
-      } else {
         res.render('home.ejs', {data: data})
       }
-    }
   }
 
 exports.profile = function(req, res, next) {
