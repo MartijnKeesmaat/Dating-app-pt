@@ -2,6 +2,7 @@
 var slug = require('slug')
 var find = require('array-find')
 var mongo = require('mongodb')
+var session = require('express-session')
 
 // setting database
 require('dotenv').config()
@@ -57,8 +58,23 @@ exports.form = function(req, res) {
     }
 }
 
+exports.loginForm = function(req, res, next) {   
+
+  function done(err, data) {
+    if (err) {
+      next(err)
+    } else {
+      res.redirect('/')
+    }
+  }
+}
+
 exports.register = function(req, res) {
     res.render('register.ejs')
+}
+
+exports.login = function(req, res) {
+  res.render('login.ejs')
 }
 
 exports.member = function(req, res) {
