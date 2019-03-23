@@ -8,6 +8,8 @@ var routes = require('./routes')
 var session = require('express-session')
 var mongoStore = require('connect-mongo')(session);
 
+//var app = express();
+
 var upload = multer({dest: 'static/upload/'})
 
 express()
