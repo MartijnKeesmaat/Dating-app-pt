@@ -8,8 +8,6 @@ var routes = require('./routes')
 var session = require('express-session')
 var mongoStore = require('connect-mongo')(session);
 
-//var app = express();
-
 var upload = multer({dest: 'static/upload/'})
 
 express()
@@ -21,8 +19,9 @@ express()
   .set('views', 'view')
   .get('/', routes.home)
   .get('/register', routes.register)
+  .post('/loginForm', routes.loginForm)
   .get('/login', routes.login)
-  .post('/login', routes.loginForm)
+
   .post('/add', upload.single('profile'), routes.form)
   .get('/:id', routes.profile)
   .delete('/:id', routes.remove)

@@ -16,6 +16,12 @@ mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client)
 })
 
 exports.home = function(req, res, next) {
+
+      // Controleer waarde in sessie variable
+      if(!req.session.isAuthenticated) {
+          res.redirect('/login');
+      }
+
     db.collection('profile').find().toArray(done)
   
     function done(err, data) {
@@ -59,6 +65,19 @@ exports.form = function(req, res) {
 }
 
 exports.loginForm = function(req, res, next) {   
+  
+  var sess = req.session;
+
+  var email = req.params.email;
+  var password = req.body.password;
+
+  if (email === "ivo@defensemonkees.nl" && password === "Test0123@!") {
+    sess.isAuthenticated = true;
+    res.redirect('/home');
+  } else {
+    sess.isAuthenticated = false;
+    res.redirect('/login');
+  }
 
   function done(err, data) {
     if (err) {
