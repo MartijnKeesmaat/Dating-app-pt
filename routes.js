@@ -51,7 +51,7 @@ exports.profile = function(req, res, next) {
 };
 
 exports.register = function(req, res) {
-  res.render('register.ejs');
+  res.render('register.ejs', {isAuthenticated: req.session.isAuthenticated});
 };
 
 exports.form = function(req, res) {
