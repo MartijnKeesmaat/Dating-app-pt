@@ -1,116 +1,118 @@
+/* eslint-disable new-cap */
+/* eslint-disable require-jsdoc */
 
-var slug = require('slug')
-var find = require('array-find')
-var mongo = require('mongodb')
-var session = require('express-session')
+const find = require('array-find');
+const mongo = require('mongodb');
+const session = require('express-session');
 
 // setting database
-require('dotenv').config()
+require('dotenv').config();
 
-var db = null
-var url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT
+let db = null;
+const url = 'mongodb://' + process.env.DB_HOST + ':' + process.env.DB_PORT;
 
-mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
-  if (err) throw err
-  db = client.db(process.env.DB_NAME)
-})
+mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
+  if (err) throw err;
+  db = client.db(process.env.DB_NAME);
+});
 
-exports.home = function(req, res, next) {
-
-      // Controleer waarde in sessie variable
-      if(!req.session.isAuthenticated) {
-          res.redirect('/login');
-      }
-
-    db.collection('profile').find().toArray(done)
-  
+exports.home = function(req, res) {
+  // Controleer waarde in sessie variable
+  if (!req.session.isAuthenticated) {
+    res.redirect('/login');
+  } else {
+    db.collection('profile').find().toArray(done);
     function done(err, data) {
-        res.render('home.ejs', {data: data})
-      }
+      res.render('home.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+      });
+    }
   }
+};
 
 exports.profile = function(req, res, next) {
-    var id = req.params.id
+  const id = req.params.id;
 
-    db.collection('profile').findOne({
-        _id: mongo.ObjectId(id)
-    }, done)
+  db.collection('profile').findOne({
+    _id: mongo.ObjectId(id),
+  }, done);
 
-    function done(err, data) {
-        if (err) {
-        next(err)
-        } else {
-        res.render('profile.ejs', {data: data})
-        }
+  function done(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.render('profile.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+      });
     }
-}
+  }
+};
 
-exports.form = function(req, res) {   
-    db.collection('profile').insertOne({
-      email: req.body.email,
-      password: req.body.password,
-      profile: req.file ? req.file.filename : null,
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      age: req.body.age
-    }, done)
-  
-    function done(err, data) {
-      if (err) {
-        next(err)
-      } else {
-        res.redirect('/' + data.insertedId)
-      }
+exports.register = function(req, res) {
+  res.render('register.ejs');
+};
+
+exports.form = function(req, res) {
+  db.collection('profile').insertOne({
+    email: req.body.email,
+    password: req.body.password,
+    profile: req.file ? req.file.filename : null,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    age: req.body.age,
+  }, done);
+
+  function done(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/' + data.insertedId);
     }
-}
+  }
+};
 
-exports.loginForm = function(req, res, next) {   
-  
-  var sess = req.session;
+exports.login = function(req, res) {
+  res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
+};
 
-  var email = req.params.email;
-  var password = req.body.password;
+exports.loginForm = function(req, res) {
+  const sess = req.session;
+  const email = req.body.email;
+  const password = req.body.password;
 
-  if (email === "ivo@defensemonkees.nl" && password === "Test0123@!") {
+  if (email === 'ivo@defensemonkees.nl' && password === 'Test0123@!') {
     sess.isAuthenticated = true;
-    res.redirect('/home');
+    res.redirect('/');
   } else {
     sess.isAuthenticated = false;
     res.redirect('/login');
   }
+};
 
-  function done(err, data) {
+exports.logout = function(req, res) {
+  // source: https://stackoverflow.com/questions/40755622/how-to-use-session-variable-with-nodejs
+  req.session.destroy(function(err) {
     if (err) {
-      next(err)
+      console.log(err);
     } else {
-      res.redirect('/')
+      res.redirect('/login');
     }
-  }
-}
-
-exports.register = function(req, res) {
-    res.render('register.ejs')
-}
-
-exports.login = function(req, res) {
-  res.render('login.ejs')
-}
-
-exports.member = function(req, res) {
-    res.render('member.ejs', {data: data})
-}
+  });
+};
 
 exports.remove = function(req, res, next) {
-    var id = req.params.id;
-    db.collection("profile").deleteOne({
-        _id: mongo.ObjectID(id)
-    }, done);
-    
-    function done(err) {
-        if (err) {
-            next(err);
-        } else {
-            res.json({status: "ok"})
-        }
+  const id = req.params.id;
+  db.collection('profile').deleteOne({
+    _id: mongo.ObjectID(id),
+  }, done);
+
+  function done(err) {
+    if (err) {
+      next(err);
+    } else {
+      res.json({status: 'ok'});
     }
-}
+  }
+};
