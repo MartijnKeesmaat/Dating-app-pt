@@ -62,6 +62,8 @@ exports.form = function(req, res) {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     age: req.body.age,
+    location: req.body.location,
+    bio: req.body.bio,
   }, done);
 
   function done(err, data) {

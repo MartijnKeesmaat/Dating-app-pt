@@ -374,7 +374,7 @@ nav ul li:last-child {
 
 .profile-item-content > div:nth-child(2),
 .profile-item-content > div:first-child {
-  width: 50%;
+  width: 100%;
 }
 
 @media only screen and (max-width: 500px) {
