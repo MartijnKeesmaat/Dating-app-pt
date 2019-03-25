@@ -31,7 +31,10 @@
                 <% if (data[index].profile) { %>
                     <img alt="<%= data[index].firstname %>" src="/upload/<%= data[index].profile %>">
                 <% } %>
-                <h2><%= data[index].firstname + ' ' + data[index].lastname %></h2>
+                <div class="profile-item-title">
+                    <h2><%= data[index].firstname + ' ' + data[index].lastname %></h2>
+                    <h2><%= data[index].age %></h2>
+                </div>
             </a>
         <% } %>
     </section>

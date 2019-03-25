@@ -157,8 +157,16 @@ nav ul li:last-child {
   object-fit: cover;
 }
 
+.profile-item-title {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .tile h2 {
-  padding: 20px;
+  font-family: 'Roboto';
+  font-weight: lighter;
+  color: #707070;
   margin: 0;
   font-size: 18px;
 }
@@ -194,6 +202,11 @@ nav ul li:last-child {
   .home-main .grid {
     align-items: center;
     flex-direction: column;
+  }
+
+  .tile img {
+    width: 315px;
+    height: 315px;
   }
 }
 
@@ -329,10 +342,46 @@ nav ul li:last-child {
 
 /*#region PROFILE*/
 
+.profile-tile {
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+}
+
 .profile-picture {
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+
+.profile-tile h2 {
+  font-family: 'Roboto';
+  font-weight: lighter;
+  color: #707070;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.profile-item-content {
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: lighter;
+  color: #707070;
+}
+
+.profile-item-content > div:nth-child(2),
+.profile-item-content > div:first-child {
+  width: 50%;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile-picture {
+    width: 315px;
+    height: 315px;
+  }
 }
 
 /*#endregion PROFILE*/
