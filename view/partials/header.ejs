@@ -1,9 +1,13 @@
 <nav>
-    <a class="nav-title" href="/">Dating app</a>
+    <a class="nav-title" href="/">DatingApp</a>
     <div>
         <ul>
-            <li><a class="nav-link" href=/register>Register</a></li>
-            <li><a class="nav-link" href=/login>Login</a></li>
+            <% if (isAuthenticated) { %>
+                <li><a class="nav-link" href=/logout>Uitloggen</a></li>
+            <% }else { %>
+                <li><a class="nav-link" href=/register>Registreren</a></li>
+                <li><a class="nav-link" href=/login>Login</a></li>
+            <% } %>
         </ul>
     </div>
 </nav>

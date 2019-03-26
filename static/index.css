@@ -67,6 +67,12 @@ button:focus {
   color: #4CCABA;
 }
 
+@media only screen and (max-width: 500px) {
+  main {
+    padding: 30px;
+  }
+}
+
 /*#endregion COMMON STYLES*/
 
 /*#region NAVBAR*/
@@ -118,6 +124,12 @@ nav ul li:last-child {
 .nav-link-white:hover {
   color: rgba(255,255,255,0.7);
 }
+
+@media only screen and (max-width: 500px) {
+  nav {
+    padding: 0 30px;
+  }
+}
 /*#endregion NAVBAR*/
 
 /*#region HOME*/
@@ -145,8 +157,16 @@ nav ul li:last-child {
   object-fit: cover;
 }
 
+.profile-item-title {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .tile h2 {
-  padding: 20px;
+  font-family: 'Roboto';
+  font-weight: lighter;
+  color: #707070;
   margin: 0;
   font-size: 18px;
 }
@@ -176,6 +196,18 @@ nav ul li:last-child {
 
 .filter-options label {
   margin: 5px 0;
+}
+
+@media only screen and (max-width: 500px) {
+  .home-main .grid {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .tile img {
+    width: 315px;
+    height: 315px;
+  }
 }
 
 /*#endregion HOME*/
@@ -221,6 +253,12 @@ nav ul li:last-child {
   display: flex;
 }
 
+.login-tile-photo {
+  background-image: url(/img/hero.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .login-form {
   margin: 30px;
   min-width: 400px;
@@ -258,6 +296,28 @@ nav ul li:last-child {
   border-radius: 0;
 }
 
+@media only screen and (max-width: 500px) {
+  .login-tile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-tile-photo {
+    width: 100%;
+    height: 200px;
+  }
+
+  .login-form {
+    margin: 20px;
+    min-width: 0;
+  }
+
+  .login-form form {
+    padding-top: 0;
+  }
+}
+
 /*#endregion LOGIN*/
 
 /*#region NOT FOUND*/
@@ -282,15 +342,49 @@ nav ul li:last-child {
 
 /*#region PROFILE*/
 
+.profile-tile {
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+}
+
 .profile-picture {
   width: 300px;
   height: 300px;
   object-fit: cover;
 }
 
-/*#endregion PROFILE*/
+.profile-tile h2 {
+  font-family: 'Roboto';
+  font-weight: lighter;
+  color: #707070;
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
 
-/*#region PROFILE*/
+.profile-item-content {
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: lighter;
+  color: #707070;
+}
+
+.profile-item-content > div:nth-child(2),
+.profile-item-content > div:first-child {
+  width: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile-picture {
+    width: 315px;
+    height: 315px;
+  }
+}
+
+/*#endregion PROFILE*/
 
 /*#region FOOTER*/
 
@@ -338,6 +432,17 @@ footer small {
   text-align: center;
   padding-top: 30px;
 }
+
+@media only screen and (max-width: 500px) {
+  footer {
+    padding: 30px;
+  }
+  
+  footer p {
+    display: none;
+  }
+}
+
 /*#endregion FOOTER*/
 
 /*#region REMOVE*/

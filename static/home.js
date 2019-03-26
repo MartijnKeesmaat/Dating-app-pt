@@ -1,3 +1,4 @@
+
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
 
@@ -21,5 +22,3 @@ for (let i = 0; i < rad.length; i++) {
     document.getElementById('filterOptions').submit();
   });
 }
-
-

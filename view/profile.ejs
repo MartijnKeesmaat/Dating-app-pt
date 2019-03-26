@@ -6,14 +6,26 @@
 
 <!--Body-->
 <main class="profile-main">
-    <section>
+    <section class="profile-tile">
         <% if (data.profile) { %>
             <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
         <% } %>
-        <h1><%= data.name %></h1>
-        <p><%= data.age %></p>
-        <button id=js-remove data-id="<%= data._id %>" class=danger>Remove</button>
-        <p class="js-delete">Could not delete!</p>
+        <div class="profile-item-title">
+            <h2><%= data.firstname + ' ' + data.lastname %></h2>
+            <h2><%= data.age %></h2>
+        </div>
+        <div class="profile-item-content">
+            <div>
+                <p>Woonplaats:</p>
+                <p><%= data.location %></p>
+            </div>
+            <div class="bio">
+                <p>Bio:</p>
+                <p><%= data.bio %></p>
+            </div>
+            <button id=js-remove data-id="<%= data._id %>" class=danger>Verwijder</button>
+            <p class="js-delete">Het profiel kon niet verwijderd worden!</p>
+        </div>
     </section>
 </main>
 
