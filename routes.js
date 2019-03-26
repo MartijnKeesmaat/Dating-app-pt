@@ -107,6 +107,7 @@ exports.logout = function(req, res) {
       res.redirect('/login');
     }
   });
+};
 
 exports.filter = function(req, res, next) {
   // In this case switch is better than if else if else if else ... etc
@@ -125,10 +126,11 @@ exports.filter = function(req, res, next) {
       break;
   }
   function done(err, data) {
-    res.render('home.ejs', {data: data});
+    res.render('home.ejs', {
+      data: data,
+      isAuthenticated: req.session.isAuthenticated,
+    });
   }
-};
-
 };
 
 exports.remove = function(req, res, next) {
