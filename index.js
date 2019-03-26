@@ -31,5 +31,7 @@ express()
     .listen(8000);
 
 function notFound(req, res) {
-  res.status(404).render('not-found.ejs');
+  res.status(404).render('not-found.ejs', {
+    isAuthenticated: req.session.isAuthenticated,
+  });
 }

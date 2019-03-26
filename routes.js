@@ -79,17 +79,22 @@ exports.login = function(req, res) {
   res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
 };
 
-exports.loginForm = function(req, res) {
+exports.loginForm = function(req, res, next) {
   const sess = req.session;
   const email = req.body.email;
-  const password = req.body.password;
+  db.collection('profile').findOne({
+    email: email,
+  }, done);
 
-  if (email === 'ivo@defensemonkees.nl' && password === 'Test0123@!') {
-    sess.isAuthenticated = true;
-    res.redirect('/');
-  } else {
-    sess.isAuthenticated = false;
-    res.redirect('/login');
+  function done(err, data) {
+    if (data && data.password === req.body.password) {
+      req.session.user = data;
+      sess.isAuthenticated = true;
+      res.redirect('/');
+    } else {
+      sess.isAuthenticated = false;
+      res.redirect('/login');
+    }
   }
 };
 
