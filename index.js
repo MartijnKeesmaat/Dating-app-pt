@@ -24,6 +24,7 @@ express()
     .post('/loginForm', routes.loginForm)
     .get('/login', routes.login)
     .get('/logout', routes.logout)
+    .post('/filter', routes.filter)
     .post('/add', upload.single('profile'), routes.form)
     .get('/:id', routes.profile)
     .delete('/:id', routes.remove)
@@ -34,4 +35,3 @@ function notFound(req, res) {
   res.status(404).render('not-found.ejs', {
     isAuthenticated: req.session.isAuthenticated,
   });
-}

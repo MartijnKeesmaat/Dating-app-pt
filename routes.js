@@ -107,6 +107,28 @@ exports.logout = function(req, res) {
       res.redirect('/login');
     }
   });
+
+exports.filter = function(req, res, next) {
+  // In this case switch is better than if else if else if else ... etc
+  switch (req.body.sort) {
+    case 'distance':
+      console.log(req.body.sort);
+      break;
+    case 'age-high-low':
+      db.collection('profile').find().sort({age: -1}).toArray(done);
+      break;
+    case 'age-low-high':
+      db.collection('profile').find().sort({age: 1}).toArray(done);
+      break;
+    case 'new':
+      console.log(req.body.sort);
+      break;
+  }
+  function done(err, data) {
+    res.render('home.ejs', {data: data});
+  }
+};
+
 };
 
 exports.remove = function(req, res, next) {
