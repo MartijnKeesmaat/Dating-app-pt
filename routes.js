@@ -9,11 +9,11 @@ const session = require('express-session');
 require('dotenv').config();
 
 let db = null;
-const url = 'mongodb://Artemis:2slqX33Xmn2@datingapp-nivgs.azure.mongodb.net/test?retryWrites=true';
+const url = process.env.DB_HOST;
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
   if (err) throw err;
-  db = client.db('datingapp');
+  db = client.db(process.env.DB_NAME);
 });
 
 exports.home = function(req, res) {
