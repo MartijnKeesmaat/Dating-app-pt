@@ -61,9 +61,10 @@ exports.form = function(req, res) {
     profile: req.file ? req.file.filename : null,
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    age: req.body.age,
+    age: Number(req.body.age),
     location: req.body.location,
     bio: req.body.bio,
+    date: Date.parse(Date(Date.now())),
   }, done);
 
   function done(err, data) {
@@ -112,9 +113,6 @@ exports.logout = function(req, res) {
 exports.filter = function(req, res, next) {
   // In this case switch is better than if else if else if else ... etc
   switch (req.body.sort) {
-    case 'distance':
-      console.log(req.body.sort);
-      break;
     case 'age-high-low':
       db.collection('profile').find().sort({age: -1}).toArray(done);
       break;
@@ -122,7 +120,7 @@ exports.filter = function(req, res, next) {
       db.collection('profile').find().sort({age: 1}).toArray(done);
       break;
     case 'new':
-      console.log(req.body.sort);
+      db.collection('profile').find().sort({date: -1}).toArray(done);
       break;
   }
   function done(err, data) {
