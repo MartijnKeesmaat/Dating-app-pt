@@ -3,6 +3,8 @@ This is an express server for the backend and project tech course. Visit the liv
 
 This dating app gives an overview of users. You are able to register and log in, check profile pages, filter/sort and delete a profile. 
 
+![](https://github.com/Kalemis/Assignments/blob/master/artboards/Profile%20%E2%80%93%20with%20talking%20history.jpg?raw=true)
+
 ## Technical summary
 For this DatingApp I used: 
 - node.js
