@@ -28,7 +28,7 @@ express()
     .get('/:id', routes.profile)
     .delete('/:id', routes.remove)
     .use(notFound)
-    .listen(8000);
+    .listen(process.env.PORT || 8000);
 
 function notFound(req, res) {
   res.status(404).render('not-found.ejs', {
