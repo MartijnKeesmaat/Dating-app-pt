@@ -9,7 +9,7 @@ const session = require('express-session');
 require('dotenv').config();
 
 let db = null;
-const url = process.env.DB_HOST;
+const url = process.env.MONGODB_URI;
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
   if (err) throw err;
