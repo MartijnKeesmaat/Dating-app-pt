@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const multer = require('multer');
 const routes = require('./routes');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 
 const upload = multer({dest: 'static/upload/'});
 
@@ -16,7 +15,7 @@ express()
       saveUninitialized: true,
       secret: process.env.SESSION_SECRET,
     }))
-    .use(session({secret: 'Test0123', store: new MongoStore({url: 'mongodb://localhost:27017/datingapp'})}))
+    .use(session({secret: 'Test0123'}))
     .set('view engine', 'ejs')
     .set('views', 'view')
     .get('/', routes.home)
