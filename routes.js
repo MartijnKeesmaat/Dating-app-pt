@@ -1,8 +1,10 @@
 /* eslint-disable new-cap */
 /* eslint-disable require-jsdoc */
 
+// eslint-disable-next-line no-unused-vars
 const find = require('array-find');
 const mongo = require('mongodb');
+// eslint-disable-next-line no-unused-vars
 const session = require('express-session');
 
 // setting database
@@ -17,7 +19,7 @@ mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
 });
 
 exports.home = function(req, res) {
-  // Controleer waarde in sessie variable
+  // Check value in session variable
   if (!req.session.isAuthenticated) {
     res.redirect('/login');
   } else {
@@ -80,7 +82,7 @@ exports.login = function(req, res) {
   res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
 };
 
-exports.loginForm = function(req, res, next) {
+exports.loginForm = function(req, res) {
   const sess = req.session;
   const email = req.body.email;
   db.collection('profile').findOne({
@@ -110,7 +112,7 @@ exports.logout = function(req, res) {
   });
 };
 
-exports.filter = function(req, res, next) {
+exports.filter = function(req, res) {
   // In this case switch is better than if else if else if else ... etc
   switch (req.body.sort) {
     case 'age-high-low':
