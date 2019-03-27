@@ -9,7 +9,7 @@ const session = require('express-session');
 require('dotenv').config();
 
 let db = null;
-const url = 'mongodb+srv://Artemis:2slqX33Xmn2@datingapp-nivgs.azure.mongodb.net/test?retryWrites=true';
+const url = 'mongodb://Artemis:2slqX33Xmn2@datingapp-nivgs.azure.mongodb.net/test?retryWrites=true';
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
   if (err) throw err;
