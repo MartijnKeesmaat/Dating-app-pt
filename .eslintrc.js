@@ -14,5 +14,22 @@ module.exports = {
     'sourceType': 'module',
   },
   'rules': {
-  },
+    'no-console': 'warn',
+    'indent': [
+      'error',
+      'tab'
+    ],
+    'linebreak-style': [
+      'error',
+      'unix'
+    ],
+    'quotes': [
+      'error',
+      'single'
+    ],
+    'semi': [
+      'error',
+      'always'
+    ]
+  }
 };
