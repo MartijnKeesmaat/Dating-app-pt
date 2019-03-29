@@ -13,12 +13,12 @@ require('dotenv').config();
 let db = null;
 const url = process.env.MONGODB_URI;
 
-mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
+mongo.MongoClient.connect(url, { useNewUrlParser: true }, function (err, client) {
   if (err) throw err;
   db = client.db(process.env.DB_NAME);
 });
 
-exports.home = function(req, res) {
+exports.home = function (req, res) {
   // Check value in session variable
   if (!req.session.isAuthenticated) {
     res.redirect('/login');
@@ -33,11 +33,11 @@ exports.home = function(req, res) {
   }
 };
 
-exports.profile = function(req, res, next) {
+exports.profile = function (req, res, next) {
   const id = req.params.id;
 
   db.collection('profile').findOne({
-    _id: mongo.ObjectId(id),
+    _id: mongo.ObjectID(id),
   }, done);
 
   function done(err, data) {
@@ -52,11 +52,11 @@ exports.profile = function(req, res, next) {
   }
 };
 
-exports.register = function(req, res) {
-  res.render('register.ejs', {isAuthenticated: req.session.isAuthenticated});
+exports.register = function (req, res) {
+  res.render('register.ejs', { isAuthenticated: req.session.isAuthenticated });
 };
 
-exports.form = function(req, res) {
+exports.form = function (req, res) {
   db.collection('profile').insertOne({
     email: req.body.email,
     password: req.body.password,
@@ -78,11 +78,11 @@ exports.form = function(req, res) {
   }
 };
 
-exports.login = function(req, res) {
-  res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
+exports.login = function (req, res) {
+  res.render('login.ejs', { isAuthenticated: req.session.isAuthenticated });
 };
 
-exports.loginForm = function(req, res) {
+exports.loginForm = function (req, res) {
   const sess = req.session;
   const email = req.body.email;
   db.collection('profile').findOne({
@@ -101,9 +101,9 @@ exports.loginForm = function(req, res) {
   }
 };
 
-exports.logout = function(req, res) {
+exports.logout = function (req, res) {
   // source: https://stackoverflow.com/questions/40755622/how-to-use-session-variable-with-nodejs
-  req.session.destroy(function(err) {
+  req.session.destroy(function (err) {
     if (err) {
       console.log(err);
     } else {
@@ -112,17 +112,17 @@ exports.logout = function(req, res) {
   });
 };
 
-exports.filter = function(req, res) {
+exports.filter = function (req, res) {
   // In this case switch is better than if else if else if else ... etc
   switch (req.body.sort) {
     case 'age-high-low':
-      db.collection('profile').find().sort({age: -1}).toArray(done);
+      db.collection('profile').find().sort({ age: -1 }).toArray(done);
       break;
     case 'age-low-high':
-      db.collection('profile').find().sort({age: 1}).toArray(done);
+      db.collection('profile').find().sort({ age: 1 }).toArray(done);
       break;
     case 'new':
-      db.collection('profile').find().sort({date: -1}).toArray(done);
+      db.collection('profile').find().sort({ date: -1 }).toArray(done);
       break;
   }
   function done(err, data) {
@@ -133,7 +133,7 @@ exports.filter = function(req, res) {
   }
 };
 
-exports.remove = function(req, res, next) {
+exports.remove = function (req, res, next) {
   const id = req.params.id;
   db.collection('profile').deleteOne({
     _id: mongo.ObjectID(id),
@@ -143,7 +143,7 @@ exports.remove = function(req, res, next) {
     if (err) {
       next(err);
     } else {
-      res.json({status: 'ok'});
+      res.json({ status: 'ok' });
     }
   }
 };
