@@ -33,5 +33,10 @@ Run the code:
 npm run start
 ```
 
+Dev environemnt
+```
+npm run dev
+```
+
 ## License
 MIT
