@@ -28,6 +28,7 @@ exports.home = function(req, res) {
 			res.render('home.ejs', {
 				data: data,
 				isAuthenticated: req.session.isAuthenticated,
+				login: req.session.login
 			});
 		}
 	}
@@ -73,10 +74,14 @@ exports.form = function(req, res) {
 		if (err) {
 			next(err);
 		} else {
+			req.session.login = {
+        firstname: req.body.firstname,
+				email: req.body.email
+      }
 			res.redirect('/' + data.insertedId);
 		}
 	}
-};
+}
 
 exports.login = function(req, res) {
 	res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
@@ -97,6 +102,7 @@ exports.loginForm = function(req, res) {
 		} else {
 			sess.isAuthenticated = false;
 			res.redirect('/login');
+
 		}
 	}
 };

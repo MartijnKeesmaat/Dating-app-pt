@@ -5,6 +5,7 @@
 <% include partials/header.ejs %>
 
 <!--Body-->
+<a class="lastLogIn" href="/">Welcome <strong><%= login.firstname%></strong> </a>
 <main class="home-main">
 
     <div class="filters">
@@ -24,7 +25,7 @@
             </div>
         </form>
     </div>
-        
+
     <section class="grid">
         <% for (var index = 0; index < data.length; index++) { %>
             <a class="tile" href="<%= data[index]._id %>">
