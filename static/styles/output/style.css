@@ -414,6 +414,7 @@ body {
   max-width: 100vw;
   margin: 0;
   padding-bottom: 0;
+  background: #F8F7F8;
 }
 
 main {
@@ -1285,6 +1286,10 @@ p {
 .tile h2 {
   margin: 0;
   font-size: 18px;
+}
+.tile h3 {
+  margin: 0;
+  font-weight: 300;
 }
 @media (min-width: 650px) {
   .tile {

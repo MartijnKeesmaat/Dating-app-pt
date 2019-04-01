@@ -9,33 +9,34 @@
 
     <div class="filters">
         <a class="filter-button">Filter &#8594;</a>
-        <form class="filter-options" style="display: none" method="POST" action="/filter" name="filterOptions" id="filterOptions">
+        <form class="filter-options" style="display: none" method="POST" action="/filter" name="filterOptions"
+            id="filterOptions">
             <div>
                 <input name="sort" type="radio" id="age-descending" value="age-high-low">
                 <label for="age-descending">Leeftijd (hoog-laag)</label>
             </div>
             <div>
-                    <input name="sort" type="radio" id="age-ascending" value="age-low-high">
-                    <label for="age-ascending">Leeftijd (laag-hoog)</label>
-                </div>
+                <input name="sort" type="radio" id="age-ascending" value="age-low-high">
+                <label for="age-ascending">Leeftijd (laag-hoog)</label>
+            </div>
             <div>
                 <input name="sort" type="radio" id="new" value="new">
                 <label for="new">Nieuw</label>
             </div>
         </form>
     </div>
-        
+
     <section class="grid">
         <% for (var index = 0; index < data.length; index++) { %>
-            <a class="tile" href="<%= data[index]._id %>">
-                <% if (data[index].profile) { %>
-                    <img alt="<%= data[index].firstname %>" src="/upload/<%= data[index].profile %>">
-                <% } %>
-                <div class="profile-item-title">
-                    <h2><%= data[index].firstname + ' ' + data[index].lastname %></h2>
-                    <h2><%= data[index].age %></h2>
-                </div>
-            </a>
+        <a class="tile" href="<%= data[index]._id %>">
+            <% if (data[index].profile) { %>
+            <img alt="<%= data[index].firstname %>" src="/upload/<%= data[index].profile %>">
+            <% } %>
+            <div class="profile-item-title">
+                <h2><%= data[index].firstname + ' ' + data[index].lastname %></h2>
+                <h3><%= data[index].age %></h3>
+            </div>
+        </a>
         <% } %>
     </section>
 </main>
@@ -44,5 +45,4 @@
 <% include partials/footer.ejs %>
 
 <!--Script tags-->
-<script src=/home.js></script>
-<% include partials/tail.ejs %>
+<script src=/home.js> </script> <% include partials/tail.ejs %>
