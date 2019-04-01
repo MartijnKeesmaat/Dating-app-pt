@@ -1,0 +1,461 @@
+*  
+  box-sizing: border-box 
+
+
+label, input, textarea, button  
+  margin: 1em 0 
+
+input, textarea, button 
+  font-size: 1em
+  padding: 0.5em
+  border-width: 0
+  border-radius: 0.25em
+
+
+input, textarea  
+  width: 100% 
+
+.danger 
+  background: red
+  color: white
+
+
+/*#region COMMON STYLES*/
+
+/*importing google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:100')
+
+body 
+  color: #333333
+  font-family: 'Roboto', sans-serif
+  margin: 0
+
+
+main 
+  padding: 30px 100px
+
+
+h1, h2, h3, h4, h5, h6 
+  font-family: 'Abril Fatface', cursive
+
+
+a 
+  cursor: pointer
+  color: #4CCABA
+  transition: color .1s linear
+  text-decoration: none
+
+
+a:hover 
+  color: #93dfd5
+
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus 
+    outline: none
+
+
+.button-blue 
+  background-color: #4CCABA
+  color: white
+  padding: 10px 60px
+  border: 2px solid #4CCABA
+  transition: background-color .2s linear
+
+
+.button-blue:hover 
+  background-color: transparent
+  color: #4CCABA
+
+
+@media only screen and (max-width: 500px) 
+  main 
+    padding: 30px
+  
+
+
+/*#endregion COMMON STYLES*/
+
+/*#region NAVBAR*/
+
+nav 
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0 100px
+  border-bottom: 1px solid #efefef
+
+
+nav ul 
+  list-style-type: none
+  display: flex
+
+
+nav ul li 
+  margin-right: 20px
+
+
+nav ul li:last-child 
+  margin-right: 0
+
+
+.nav-title 
+  font-family: 'Abril Fatface', cursive
+  font-size: 25px
+  color: #333333
+  transition: color .2s linear
+
+
+.nav-title:hover 
+  color: rgba(51,51,51,0.7)
+
+
+.nav-title-white 
+  color: white
+
+
+.nav-title-white:hover 
+  color: rgba(255,255,255,0.7)
+
+
+.nav-link-white 
+  color: white
+
+
+.nav-link-white:hover 
+  color: rgba(255,255,255,0.7)
+
+
+@media only screen and (max-width: 500px) 
+  nav 
+    padding: 0 30px
+  
+
+/*#endregion NAVBAR*/
+
+/*#region HOME*/
+.home-main 
+  background-color: #F8F7F8
+ 
+
+.home-main .grid 
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+
+.tile 
+  background-color: white
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  margin-bottom: 50px
+
+
+.tile img 
+  width: 250px
+  height: 250px
+  object-fit: cover
+
+
+.profile-item-title 
+  padding: 15px
+  display: flex
+  justify-content: space-between
+
+
+.tile h2 
+  font-family: 'Roboto'
+  font-weight: lighter
+  color: #707070
+  margin: 0
+  font-size: 18px
+
+
+.filters 
+  display: flex
+  align-items: flex-end
+  margin-bottom: 30px
+  flex-direction: column
+
+
+.filter-options 
+  flex-direction: column
+  margin-top: 20px
+
+
+.filter-options div 
+  display: flex
+  align-items: center
+
+
+.filter-options input 
+  width: unset
+  margin-right: 10px
+  margin: 5px 10px 5px 0
+
+
+.filter-options label 
+  margin: 5px 0
+
+
+@media only screen and (max-width: 500px) 
+  .home-main .grid 
+    align-items: center
+    flex-direction: column
+  
+
+  .tile img 
+    width: 315px
+    height: 315px
+  
+
+
+/*#endregion HOME*/
+
+/*#region ABOUT*/
+
+.about-section 
+  display: flex
+
+
+.about-section img 
+  margin-right: 50px
+
+
+.about-section p 
+  margin: 0
+
+
+.about-section img 
+  max-width: 100%
+  max-height: 400px
+
+/*#endregion ABOUT*/
+
+/*#region LOGIN*/
+
+.login-main 
+  display: flex
+  flex-direction: column
+  justify-content: center
+  min-height: calc(100vh - 54px)
+  align-items: center
+
+
+.login-tile 
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  width: 70%
+
+
+.login-tile-flex 
+  display: flex
+
+
+.login-tile-photo 
+  background-image: url(/img/hero.jpg)
+  background-size: cover
+  background-repeat: no-repeat
+
+
+.login-form 
+  margin: 30px
+  min-width: 400px
+
+
+.login-form button 
+  display: block
+  width: 100%
+  background-color: #4CCABA
+  border: 2px solid #4CCABA
+  border-radius: 0
+  color: white
+  padding: 10px
+  font-family: 'Roboto', sans-serif
+  cursor: pointer
+  transition: background-color .2s linear
+
+
+.login-form button:hover 
+  background-color: transparent
+  color: #4CCABA
+
+
+.login-form form 
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  flex-grow: 1
+  padding-top: 40px
+
+
+.login-form input 
+  width: 100%
+  border-bottom: 1px solid #cccccc
+  border-radius: 0
+
+
+@media only screen and (max-width: 500px) 
+  .login-tile 
+    width: 100%
+    display: flex
+    flex-direction: column
+  
+
+  .login-tile-photo 
+    width: 100%
+    height: 200px
+  
+
+  .login-form 
+    margin: 20px
+    min-width: 0
+  
+
+  .login-form form 
+    padding-top: 0
+  
+
+
+/*#endregion LOGIN*/
+
+/*#region NOT FOUND*/
+
+.not-found-main 
+  display: flex
+  flex-direction: column
+  align-items: center
+  min-height: calc(100vh - 54px)
+  justify-content: space-evenly
+
+
+.not-found-main h1 
+  margin-top: 0px
+
+
+.not-found-main img 
+  width: 300px
+
+
+/*#endregion NOT FOUND*/
+
+/*#region PROFILE*/
+
+.profile-tile 
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+
+
+.profile-picture 
+  width: 300px
+  height: 300px
+  object-fit: cover
+
+
+.profile-tile h2 
+  font-family: 'Roboto'
+  font-weight: lighter
+  color: #707070
+  margin: 0
+  font-size: 18px
+  font-weight: bold
+
+
+.profile-item-content 
+  padding: 0 15px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  font-weight: lighter
+  color: #707070
+
+
+.profile-item-content > div:nth-child(2),
+.profile-item-content > div:first-child 
+  width: 100%
+
+
+@media only screen and (max-width: 500px) 
+  .profile-picture 
+    width: 315px
+    height: 315px
+  
+
+
+/*#endregion PROFILE*/
+
+/*#region FOOTER*/
+
+footer 
+  background: linear-gradient(to left, #B2E8E1, #4CCABA)
+  padding: 30px 100px
+  color: white
+
+
+footer > div 
+  display: flex
+
+
+footer > div > p 
+  flex-basis: 65%
+
+
+footer > div > ul 
+  flex-basis: 35%
+
+
+.footer-links 
+  margin-right: 40px
+  margin-left: 40px
+
+
+footer ul 
+  list-style-type: none
+  padding: 0
+
+
+footer ul a 
+  color: white
+  transition: color .2s linear
+
+
+footer ul a:hover 
+  color: rgba(255,255,255,0.7)
+
+
+footer small 
+  border-top: 1px solid rgba(255,255,255,0.7)
+  display: block
+  margin-top: 50px
+  text-align: center
+  padding-top: 30px
+
+
+@media only screen and (max-width: 500px) 
+  footer 
+    padding: 30px
+  
+  
+  footer p 
+    display: none
+  
+
+
+/*#endregion FOOTER*/
+
+/*#region REMOVE*/
+
+.js-delete 
+  color: red
+  font-weight: bold
+  display: none
+
+
+.display 
+  display: block!important
+
