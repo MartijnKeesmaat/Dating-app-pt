@@ -14,136 +14,141 @@ let db = null;
 const url = process.env.MONGODB_URI;
 
 mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
-	if (err) throw err;
-	db = client.db(process.env.DB_NAME);
+  if (err) throw err;
+  db = client.db(process.env.DB_NAME);
 });
 
 exports.home = function(req, res) {
-	// Check value in session variable
-	if (!req.session.isAuthenticated) {
-		res.redirect('/login');
-	} else {
-		db.collection('profile').find().toArray(done);
-		function done(err, data) {
-			res.render('home.ejs', {
-				data: data,
-				isAuthenticated: req.session.isAuthenticated,
-			});
-		}
-	}
+  // Check value in session variable
+  if (!req.session.isAuthenticated) {
+    res.redirect('/login');
+  } else {
+    db.collection('profile').find().toArray(done);
+    function done(err, data) {
+      res.render('home.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+      });
+    }
+  }
 };
 
 exports.profile = function(req, res, next) {
-	const id = req.params.id;
+  const id = req.params.id;
 
-	db.collection('profile').findOne({
-		_id: mongo.ObjectID(id),
-	}, done);
+  db.collection('profile').findOne({
+    _id: mongo.ObjectID(id),
+  }, done);
 
-	function done(err, data) {
-		if (err) {
-			next(err);
-		} else {
-			res.render('profile.ejs', {
-				data: data,
-				isAuthenticated: req.session.isAuthenticated,
-			});
-		}
-	}
+  function done(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.render('profile.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+      });
+    }
+  }
 };
 
 exports.register = function(req, res) {
-	res.render('register.ejs', {isAuthenticated: req.session.isAuthenticated});
+  res.render('register.ejs', {isAuthenticated: req.session.isAuthenticated});
 };
 
 exports.form = function(req, res) {
-	db.collection('profile').insertOne({
-		email: req.body.email,
-		password: req.body.password,
-		profile: req.file ? req.file.filename : null,
-		firstname: req.body.firstname,
-		lastname: req.body.lastname,
-		age: Number(req.body.age),
-		location: req.body.location,
-		bio: req.body.bio,
-		date: Date.parse(Date(Date.now())),
-	}, done);
+  db.collection('profile').insertOne({
+    email: req.body.email,
+    password: req.body.password,
+    profile: req.file ? req.file.filename : null,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    age: Number(req.body.age),
+    location: req.body.location,
+    bio: req.body.bio,
+    date: Date.parse(Date(Date.now())),
+  }, done);
 
-	function done(err, data) {
-		if (err) {
-			next(err);
-		} else {
-			res.redirect('/' + data.insertedId);
-		}
-	}
+  function done(err, data) {
+    const sess = req.session;
+    if (err) {
+      next(err);
+    } else {
+      sess.isAuthenticated = true;
+      res.redirect('/' + data.insertedId);
+    }
+  }
 };
 
 exports.login = function(req, res) {
-	res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
+  res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
 };
 
 exports.loginForm = function(req, res) {
-	const sess = req.session;
-	const email = req.body.email;
-	db.collection('profile').findOne({
-		email: email,
-	}, done);
+  const sess = req.session;
+  const email = req.body.email;
+  db.collection('profile').findOne({
+    email: email,
+  }, done);
 
-	function done(err, data) {
-		if (data && data.password === req.body.password) {
-			req.session.user = data;
-			sess.isAuthenticated = true;
-			res.redirect('/');
-		} else {
-			sess.isAuthenticated = false;
-			res.redirect('/login');
-		}
-	}
+  function done(err, data) {
+    if (data && data.password === req.body.password) {
+      req.session.user = data;
+      sess.isAuthenticated = true;
+      res.redirect('/');
+    } else {
+      sess.isAuthenticated = false;
+      res.redirect('/login');
+    }
+  }
 };
 
 exports.logout = function(req, res) {
-	// source: https://stackoverflow.com/questions/40755622/how-to-use-session-variable-with-nodejs
-	req.session.destroy(function(err) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.redirect('/login');
-		}
-	});
+  // source: https://stackoverflow.com/questions/40755622/how-to-use-session-variable-with-nodejs
+  req.session.destroy(function(err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect('/login');
+    }
+  });
 };
 
 exports.filter = function(req, res) {
-	// In this case switch is better than if else if else if else ... etc
-	switch (req.body.sort) {
-	case 'age-high-low':
-		db.collection('profile').find().sort({age: -1}).toArray(done);
-		break;
-	case 'age-low-high':
-		db.collection('profile').find().sort({age: 1}).toArray(done);
-		break;
-	case 'new':
-		db.collection('profile').find().sort({date: -1}).toArray(done);
-		break;
-	}
-	function done(err, data) {
-		res.render('home.ejs', {
-			data: data,
-			isAuthenticated: req.session.isAuthenticated,
-		});
-	}
+  // In this case switch is better than if else if else if else ... etc
+  switch (req.body.sort) {
+    case 'age-high-low':
+      db.collection('profile').find().sort({age: -1}).toArray(done);
+      break;
+    case 'age-low-high':
+      db.collection('profile').find().sort({age: 1}).toArray(done);
+      break;
+    case 'new':
+      db.collection('profile').find().sort({date: -1}).toArray(done);
+      break;
+  }
+  function done(err, data) {
+    res.render('home.ejs', {
+      data: data,
+      isAuthenticated: req.session.isAuthenticated,
+    });
+  }
 };
 
 exports.remove = function(req, res, next) {
-	const id = req.params.id;
-	db.collection('profile').deleteOne({
-		_id: mongo.ObjectID(id),
-	}, done);
+  const sess = req.session;
+  const id = req.params.id;
+  db.collection('profile').deleteOne({
+    _id: mongo.ObjectID(id),
+  }, done);
 
-	function done(err) {
-		if (err) {
-			next(err);
-		} else {
-			res.json({status: 'ok'});
-		}
-	}
+  function done(err) {
+    if (err) {
+      next(err);
+    } else {
+      // logout
+      sess.isAuthenticated = false;
+      res.json({status: 'ok'});
+    }
+  }
 };
