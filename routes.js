@@ -146,6 +146,7 @@ exports.remove = function(req, res, next) {
     if (err) {
       next(err);
     } else {
+      // logout
       sess.isAuthenticated = false;
       res.json({status: 'ok'});
     }
