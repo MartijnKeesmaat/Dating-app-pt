@@ -19,7 +19,7 @@ For this DatingApp I used:
 ## Installation 
 Clone the repository: 
 ```
-https://github.com/Kalemis/Assignments.git
+https://github.com/MartijnKeesmaat/Dating-app-pt.git
 ```
 
 NPM: 
