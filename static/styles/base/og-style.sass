@@ -203,12 +203,12 @@ nav ul li:last-child
 
 
 .login-tile 
-  width: 70%
-
+  width: 90%
+  max-width: 320px
 
 .login-tile-flex 
   display: flex
-
+  margin: 0 auto
 
 .login-tile-photo 
   background-image: url(/img/hero.jpg)
@@ -218,7 +218,7 @@ nav ul li:last-child
 
 .login-form 
   margin: 30px
-  min-width: 400px
+  width: 100%
 
 
 // .login-form button 
@@ -252,26 +252,6 @@ nav ul li:last-child
   border-radius: 0
 
 
-@media only screen and (max-width: 500px) 
-  .login-tile 
-    width: 100%
-    display: flex
-    flex-direction: column
-  
-
-  .login-tile-photo 
-    width: 100%
-    height: 200px
-  
-
-  .login-form 
-    margin: 20px
-    min-width: 0
-  
-
-  .login-form form 
-    padding-top: 0
-  
 
 
 /*#endregion LOGIN*/
@@ -416,3 +396,6 @@ footer ul a
 .display 
   display: block!important
 
+
+.login-form
+  margin: 30px auto
