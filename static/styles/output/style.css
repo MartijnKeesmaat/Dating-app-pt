@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900");
-@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:100");
+:root {
+  --color-main: #FD8D81;
+  --color-header: #3D3D3F;
+  --color-body: #777778;
+  --color-sub: #9B9BB7;
+  --color-bg: #F8F8F8;
+  --color-secundary: #FFF3CE;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -25,10 +33,8 @@ input, textarea {
 }
 
 /*#region COMMON STYLES*/
-/*importing google fonts*/
 body {
   color: #333333;
-  font-family: "Roboto", sans-serif;
   margin: 0;
 }
 
@@ -36,19 +42,14 @@ main {
   padding: 30px 100px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Abril Fatface", cursive;
-}
-
 a {
   cursor: pointer;
   color: #4CCABA;
-  transition: color 0.1s linear;
+  transition: 0.3s ease;
   text-decoration: none;
 }
-
 a:hover {
-  color: #93dfd5;
+  opacity: 0.6;
 }
 
 input:focus,
@@ -100,8 +101,8 @@ nav ul li:last-child {
 }
 
 .nav-title {
-  font-family: "Abril Fatface", cursive;
-  font-size: 25px;
+  font-size: 22px;
+  font-weight: 600;
   color: #333333;
   transition: color 0.2s linear;
 }
@@ -164,7 +165,6 @@ nav ul li:last-child {
 }
 
 .tile h2 {
-  font-family: "Roboto";
   font-weight: lighter;
   color: #707070;
   margin: 0;
@@ -239,9 +239,6 @@ nav ul li:last-child {
 }
 
 .login-tile {
-  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   width: 70%;
 }
 
@@ -260,19 +257,6 @@ nav ul li:last-child {
   min-width: 400px;
 }
 
-.login-form button {
-  display: block;
-  width: 100%;
-  background-color: #4CCABA;
-  border: 2px solid #4CCABA;
-  border-radius: 0;
-  color: white;
-  padding: 10px;
-  font-family: "Roboto", sans-serif;
-  cursor: pointer;
-  transition: background-color 0.2s linear;
-}
-
 .login-form button:hover {
   background-color: transparent;
   color: #4CCABA;
@@ -283,7 +267,6 @@ nav ul li:last-child {
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
-  padding-top: 40px;
 }
 
 .login-form input {
@@ -346,7 +329,6 @@ nav ul li:last-child {
 }
 
 .profile-tile h2 {
-  font-family: "Roboto";
   font-weight: lighter;
   color: #707070;
   margin: 0;
@@ -378,8 +360,12 @@ nav ul li:last-child {
 /*#region FOOTER*/
 footer {
   background: linear-gradient(to left, #B2E8E1, #4CCABA);
-  padding: 30px 100px;
+  padding: 10px 100px;
   color: white;
+  display: flex;
+}
+footer small {
+  color: #fff;
 }
 
 footer > div {
@@ -392,6 +378,23 @@ footer > div > p {
 
 footer > div > ul {
   flex-basis: 35%;
+}
+
+footer {
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-main);
+}
+footer h2 {
+  margin: 0;
+}
+
+ul.footer-socials {
+  display: flex;
+  margin: 0;
+}
+ul.footer-socials li {
+  margin-right: 20px;
 }
 
 .footer-links {
@@ -407,18 +410,6 @@ footer ul {
 footer ul a {
   color: white;
   transition: color 0.2s linear;
-}
-
-footer ul a:hover {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-footer small {
-  border-top: 1px solid rgba(255, 255, 255, 0.7);
-  display: block;
-  margin-top: 50px;
-  text-align: center;
-  padding-top: 30px;
 }
 
 @media only screen and (max-width: 500px) {
@@ -442,15 +433,6 @@ footer small {
   display: block !important;
 }
 
-:root {
-  --color-main: #FD8D81;
-  --color-header: #3D3D3F;
-  --color-body: #777778;
-  --color-sub: #9B9BB7;
-  --color-bg: #F8F8F8;
-  --color-secundary: #FFF3CE;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -462,7 +444,7 @@ a {
 body {
   max-width: 100vw;
   margin: 0;
-  padding-bottom: 70px;
+  padding-bottom: 0;
 }
 
 main.main-content {

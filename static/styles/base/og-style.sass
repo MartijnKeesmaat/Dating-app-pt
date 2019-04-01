@@ -22,12 +22,8 @@ input, textarea
 
 /*#region COMMON STYLES*/
 
-/*importing google fonts*/
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto:100')
-
 body 
   color: #333333
-  font-family: 'Roboto', sans-serif
   margin: 0
 
 
@@ -35,20 +31,14 @@ main
   padding: 30px 100px
 
 
-h1, h2, h3, h4, h5, h6 
-  font-family: 'Abril Fatface', cursive
-
-
 a 
   cursor: pointer
   color: #4CCABA
-  transition: color .1s linear
+  transition: .3s ease
   text-decoration: none
 
-
-a:hover 
-  color: #93dfd5
-
+  &:hover
+    opacity: .6
 
 input:focus,
 select:focus,
@@ -102,8 +92,8 @@ nav ul li:last-child
 
 
 .nav-title 
-  font-family: 'Abril Fatface', cursive
-  font-size: 25px
+  font-size: 22px
+  font-weight: 600
   color: #333333
   transition: color .2s linear
 
@@ -167,7 +157,7 @@ nav ul li:last-child
 
 
 .tile h2 
-  font-family: 'Roboto'
+  
   font-weight: lighter
   color: #707070
   margin: 0
@@ -246,9 +236,6 @@ nav ul li:last-child
 
 
 .login-tile 
-  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
-  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
-  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
   width: 70%
 
 
@@ -267,17 +254,17 @@ nav ul li:last-child
   min-width: 400px
 
 
-.login-form button 
-  display: block
-  width: 100%
-  background-color: #4CCABA
-  border: 2px solid #4CCABA
-  border-radius: 0
-  color: white
-  padding: 10px
-  font-family: 'Roboto', sans-serif
-  cursor: pointer
-  transition: background-color .2s linear
+// .login-form button 
+//   display: block
+//   width: 100%
+//   background-color: #4CCABA
+//   border: 2px solid #4CCABA
+//   border-radius: 0
+//   color: white
+//   padding: 10px
+//   , sans-serif
+//   cursor: pointer
+//   transition: background-color .2s linear
 
 
 .login-form button:hover 
@@ -290,7 +277,6 @@ nav ul li:last-child
   flex-direction: column
   justify-content: space-between
   flex-grow: 1
-  padding-top: 40px
 
 
 .login-form input 
@@ -358,7 +344,6 @@ nav ul li:last-child
 
 
 .profile-tile h2 
-  font-family: 'Roboto'
   font-weight: lighter
   color: #707070
   margin: 0
@@ -393,9 +378,12 @@ nav ul li:last-child
 
 footer 
   background: linear-gradient(to left, #B2E8E1, #4CCABA)
-  padding: 30px 100px
+  padding: 10px 100px
   color: white
+  display: flex
 
+  small
+    color: #fff
 
 footer > div 
   display: flex
@@ -408,6 +396,20 @@ footer > div > p
 footer > div > ul 
   flex-basis: 35%
 
+footer
+  justify-content: space-between
+  align-items: center
+  background: var(--color-main)
+
+  h2
+    margin: 0
+
+ul.footer-socials
+  display: flex
+  margin: 0
+
+  li
+    margin-right: 20px  
 
 .footer-links 
   margin-right: 40px
@@ -422,18 +424,6 @@ footer ul
 footer ul a 
   color: white
   transition: color .2s linear
-
-
-footer ul a:hover 
-  color: rgba(255,255,255,0.7)
-
-
-footer small 
-  border-top: 1px solid rgba(255,255,255,0.7)
-  display: block
-  margin-top: 50px
-  text-align: center
-  padding-top: 30px
 
 
 @media only screen and (max-width: 500px) 
