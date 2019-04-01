@@ -13,9 +13,6 @@ For this DatingApp I used:
 - mongodb atlas
 - Heroku
 
-### Commit style
-- [Link](https://github.com/erlang/otp/wiki/writing-good-commit-messages)
-
 ## Installation 
 Clone the repository: 
 ```
@@ -31,11 +28,6 @@ npm install
 Run the code: 
 ```
 npm run start
-```
-
-Dev environemnt
-```
-npm run dev
 ```
 
 ## License
