@@ -933,6 +933,8 @@ p {
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   padding: 30px;
   background: #fff !important;
+  max-width: 600px;
+  margin: 0 auto;
 }
 .profile-tile h2 {
   margin: 0;
