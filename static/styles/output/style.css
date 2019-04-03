@@ -1256,6 +1256,7 @@ p {
   -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   padding: 30px;
+  background: #fff !important;
 }
 .profile-tile h2 {
   margin: 0;
@@ -1275,6 +1276,7 @@ p {
   left: -30px;
   right: -60px;
   height: 300px;
+  top: -30px;
   object-fit: cover;
 }
 
@@ -1301,7 +1303,8 @@ p {
 .profile-item-content div {
   display: flex;
 }
-.profile-item-content div p:nth(first-of-type) {
+
+.profile-item-content div p:first-child {
   font-weight: 600;
   margin-right: 10px;
 }

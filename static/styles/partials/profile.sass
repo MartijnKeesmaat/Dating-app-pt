@@ -3,6 +3,7 @@
   -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
   box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
   padding: 30px
+  background: #fff !important
 
   h2
     margin: 0
@@ -22,6 +23,7 @@
   left: -30px
   right: -60px
   height: 300px
+  top: -30px
   object-fit: cover
 
 .profile-item-content 
@@ -46,6 +48,6 @@
 .profile-item-content div
   display: flex
 
-  & p:nth(first-of-type)
-    font-weight: 600
-    margin-right: 10px
+.profile-item-content div p:first-child
+  font-weight: 600
+  margin-right: 10px
