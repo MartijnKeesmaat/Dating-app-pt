@@ -265,48 +265,6 @@ nav ul li:last-child {
 }
 
 /*#endregion NOT FOUND*/
-/*#region PROFILE*/
-.profile-tile {
-  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-}
-
-.profile-picture {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-}
-
-.profile-tile h2 {
-  font-weight: lighter;
-  color: #707070;
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.profile-item-content {
-  padding: 0 15px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  font-weight: lighter;
-  color: #707070;
-}
-
-.profile-item-content > div:nth-child(2),
-.profile-item-content > div:first-child {
-  width: 100%;
-}
-
-@media only screen and (max-width: 500px) {
-  .profile-picture {
-    width: 315px;
-    height: 315px;
-  }
-}
-/*#endregion PROFILE*/
 /*#region FOOTER*/
 footer {
   background: linear-gradient(to left, #B2E8E1, #4CCABA);
@@ -1291,6 +1249,61 @@ p {
   padding: 15px;
   display: flex;
   justify-content: space-between;
+}
+
+.profile-tile {
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  padding: 30px;
+}
+.profile-tile h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.profile-tile h3 {
+  font-weight: 300;
+  margin: 0;
+  margin-top: 15px;
+}
+
+.profile-picture {
+  width: calc(100% + 63px);
+  position: relative;
+  left: -30px;
+  right: -60px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.profile-item-content {
+  padding: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-weight: lighter;
+  color: #707070;
+}
+
+.profile-item-content > div:nth-child(2),
+.profile-item-content > div:first-child {
+  width: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile-picture {
+    width: 315px;
+    height: 315px;
+  }
+}
+.profile-item-content div {
+  display: flex;
+}
+.profile-item-content div p:nth(first-of-type) {
+  font-weight: 600;
+  margin-right: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

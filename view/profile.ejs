@@ -8,11 +8,11 @@
 <main class="profile-main">
     <section class="profile-tile">
         <% if (data.profile) { %>
-            <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
+        <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
         <% } %>
         <div class="profile-item-title">
             <h2><%= data.firstname + ' ' + data.lastname %></h2>
-            <h2><%= data.age %></h2>
+            <h3><%= data.age %></h3>
         </div>
         <div class="profile-item-content">
             <div>
