@@ -12,6 +12,11 @@
         <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
 
         <% } %>
+        <div class="profile-intro__right">
+            <img src="/img/icons/heart.svg" alt="">
+            <img src="/img/icons/chat.svg" alt="" class="icebreaker__open">
+            <img src="/img/icons/match-meter.svg" alt="">
+        </div>
         <div class="profile-item-title">
             <h2><%= data.firstname + ' ' + data.lastname %></h2>
             <h3><%= data.age %></h3>
@@ -25,11 +30,8 @@
                 <p>Bio:</p>
                 <p><%= data.bio %></p>
             </div>
-            <div>
-                <button class="btn icebreaker__open">ICE-BR</button>
-                <button id=js-remove data-id="<%= data._id %>" class=danger>Verwijder</button>
-                <p class="js-delete">Het profiel kon niet verwijderd worden!</p>
-            </div>
+            <button id=js-remove data-id="<%= data._id %>" class=danger>Verwijder</button>
+            <p class="js-delete">Het profiel kon niet verwijderd worden!</p>
         </div>
     </section>
     <article class="icebreaker" id="icebreaker"><progress value="16.6" max="100"></progress>
