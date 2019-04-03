@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
-(function () {
+(function() {
   'use strict';
 
   const body = document.querySelector('main');
@@ -67,6 +67,7 @@
 
   function iceBreakerOpen() {
     $('body').classList.add('is-icebreaker-r-active');
+    $('.ice-breaker--msg').classList.add('hide-msg');
   }
 
   if ($('.open-edit')) $('.open-edit').addEventListener('click', editOpen, false);

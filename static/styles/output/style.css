@@ -1107,6 +1107,7 @@ p {
   text-align: center;
   transition: 0.6s all ease;
   top: 0;
+  transition: 0.3s all ease;
 }
 .ice-breaker--msg p {
   margin: 0;
@@ -1318,6 +1319,11 @@ p {
     opacity: 1;
   }
 }
+.hide-msg {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .js-enabled.is-icebreaker-active {
   overflow: hidden;
 }
