@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* eslint-disable require-jsdoc */
-(function() {
+(function () {
   'use strict';
 
   const body = document.querySelector('main');
@@ -49,7 +49,7 @@
   $$('.icebreaker__close').forEach((i) => i.addEventListener('click', closeBreaker, false));
   function closeBreaker() {
     body.classList.remove('is-icebreaker-active');
-    body.classList.remove('is-icebreaker-r-active');
+    $('body').classList.remove('is-icebreaker-r-active');
     body.classList.remove('is-edit-open');
   }
 
