@@ -74,10 +74,8 @@ exports.form = function(req, res) {
 		if (err) {
 			next(err);
 		} else {
-			req.session.login = {
-        firstname: req.body.firstname,
-				email: req.body.email
-      }
+
+
 			res.redirect('/' + data.insertedId);
 		}
 	}
@@ -98,7 +96,13 @@ exports.loginForm = function(req, res) {
 		if (data && data.password === req.body.password) {
 			req.session.user = data;
 			sess.isAuthenticated = true;
+			req.session.login = {
+        firstname: data.firstname
+      }
+
 			res.redirect('/');
+
+
 		} else {
 			sess.isAuthenticated = false;
 			res.redirect('/login');
