@@ -28,6 +28,7 @@ exports.home = function(req, res) {
       res.render('home.ejs', {
         data: data,
         isAuthenticated: req.session.isAuthenticated,
+        iceBreakerData: {images: []},
       });
     }
   }
@@ -103,6 +104,51 @@ exports.loginForm = function(req, res) {
   }
 };
 
+exports.iceBreaker = function(req, res) {
+  const sess = req.session;
+  const iceBreakerData = {
+    images: {},
+  };
+
+  iceBreakerData.images = []; // reset data
+  iceBreakerData.images.push(
+      `/img/icebreaker/${req.body.q1}.jpg`,
+      `/img/icebreaker/${req.body.q2}.jpg`,
+      `/img/icebreaker/${req.body.q3}.jpg`
+  );
+  // console.log(req.session.user);
+  // res.render('home', {
+  //   // user: req.session.user,
+  // });
+
+  if (!req.session.isAuthenticated) {
+    res.redirect('/login');
+  } else {
+    db.collection('profile').find().toArray(done);
+    function done(err, data) {
+      res.render('home', {
+        iceBreakerData,
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+      });
+    }
+  }
+  // db.collection('profile').findOne({
+  //   email: email,
+  // }, done);
+
+  // function done(err, data) {
+  //   if (data && data.password === req.body.password) {
+  //     req.session.user = data;
+  //     sess.isAuthenticated = true;
+  //     res.redirect('/');
+  //   } else {
+  //     sess.isAuthenticated = false;
+  //   }
+  // }
+  // res.redirect('/');
+};
+
 exports.logout = function(req, res) {
   // source: https://stackoverflow.com/questions/40755622/how-to-use-session-variable-with-nodejs
   req.session.destroy(function(err) {
@@ -131,6 +177,7 @@ exports.filter = function(req, res) {
     res.render('home.ejs', {
       data: data,
       isAuthenticated: req.session.isAuthenticated,
+      iceBreakerData: {images: []},
     });
   }
 };
