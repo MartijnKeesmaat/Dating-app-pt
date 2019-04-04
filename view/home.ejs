@@ -5,7 +5,12 @@
 <% include partials/header.ejs %>
 
 <!--Body-->
-<a class="lastLogIn" href="/">Welcome <strong><%= login.firstname%></strong> </a>
+<% if (login.firstname == login.firstname) {%>
+  <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= login.firstname%></strong> </a>
+<%}%>
+
+
+
 <main class="home-main">
 
     <div class="filters">

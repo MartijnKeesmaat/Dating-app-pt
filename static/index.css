@@ -76,9 +76,13 @@ button:focus {
 /*#endregion COMMON STYLES*/
 
 /*#region NAVBAR*/
-
+nav > div > ul > img {
+width: 3em;
+height: 3em;
+border-radius: 2em}
 nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 75% 25%;
   justify-content: space-between;
   align-items: center;
   padding: 0 100px;
