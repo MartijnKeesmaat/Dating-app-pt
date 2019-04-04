@@ -177,6 +177,7 @@ exports.filter = function(req, res) {
     res.render('home.ejs', {
       data: data,
       isAuthenticated: req.session.isAuthenticated,
+      iceBreakerData: {images: []},
     });
   }
 };
