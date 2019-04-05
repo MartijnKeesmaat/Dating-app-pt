@@ -35,7 +35,6 @@ exports.home = function(req, res) {
 
 exports.profile = function(req, res, next) {
   const id = req.params.id;
-
   db.collection('profile').findOne({
     _id: mongo.ObjectID(id),
   }, done);
@@ -74,7 +73,17 @@ exports.form = function(req, res) {
     if (err) {
       next(err);
     } else {
-      res.redirect('/' + data.insertedId);
+      const email = req.body.email;
+      const password = req.body.password;
+      db.collection('profile').findOne({
+        email: email,
+        password: password,
+      }, user);
+      function user(err, data) {
+        req.session.isAuthenticated = true;
+        req.session.user = data;
+        res.redirect('/');
+      }
     }
   }
 };
@@ -144,6 +153,7 @@ exports.remove = function(req, res, next) {
     if (err) {
       next(err);
     } else {
+      req.session.isAuthenticated = false;
       res.json({status: 'ok'});
     }
   }
