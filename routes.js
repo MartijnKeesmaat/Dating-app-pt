@@ -67,6 +67,9 @@ exports.form = function(req, res) {
     age: Number(req.body.age),
     location: req.body.location,
     bio: req.body.bio,
+    genre: req.body.genre,
+    instrument: req.body.instrument,
+    specialize: req.body.specialize,
     date: Date.parse(Date(Date.now())),
   }, done);
 
