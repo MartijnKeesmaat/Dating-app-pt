@@ -1,34 +1,46 @@
-# DatingApp
-This is an express server for the backend and project tech course. Visit the live version [here](https://calm-wave-52017.herokuapp.com/).
+# Muze
+Find your muse with Muze. Discover whose music taste match yours and go on a date to dance the night away.
 
-This dating app gives an overview of users. You are able to register and log in, check profile pages, filter/sort and delete a profile. 
+Muze lets you find people who listen to the same music you do. Just filter a music genre, see whose favorite track finds your tune, test each others knowledge, and start the talk. 
 
-![](https://github.com/Kalemis/Assignments/blob/master/artboards/Profile%20%E2%80%93%20with%20talking%20history.jpg?raw=true)
+Visit Muze to [learn more](https://calm-wave-52017.herokuapp.com) or find your muse and [**sign up**](https://calm-wave-52017.herokuapp.com/register).
+
+## Features
+
+Muze gives you an overview of users. You can register and log in, filter on music genres, check profile pages, match by doing a music quizzes, save people to your checklist, and start a chat. 
+
+![Profile page with a photograph of a smiling woman, showing name, age, place of residence, personal hobby's and short biography](https://github.com/Kalemis/Assignments/blob/master/artboards/Profile%20%E2%80%93%20with%20talking%20history.jpg?raw=true)
 
 ## Technical summary
-For this DatingApp I used: 
-- node.js
-- express
-- mongodb
-- mongodb atlas
+Muze is built using:
+- Node.js
+- Express
+- Mongodb
 - Heroku
 
+For more see [package.json](https://github.com/MartijnKeesmaat/Dating-app-pt/blob/master/package.json)
+
 ## Installation 
-Clone the repository: 
+Clone the repository:
 ```
-https://github.com/Kalemis/Assignments.git
+$ git clone https://github.com/MartijnKeesmaat/Dating-app-pt.git
 ```
 
-NPM: 
+Install dependencies:
 ```
-npm install
+$ npm install
 ```
 
 ## Usage
-Run the code: 
+Run Muze:
 ```
-npm run start
+$ npm run start
+```
+
+Run developer mode:
+```
+$ npm run dev
 ```
 
 ## License
-MIT
+[MIT license](https://github.com/MartijnKeesmaat/Dating-app-pt/blob/master/LICENSE)

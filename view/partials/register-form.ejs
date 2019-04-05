@@ -1,14 +1,14 @@
 
-<h2>Registreren</h2>
+<h1>Create account</h1>
 <form action=/add method=post enctype=multipart/form-data>
     <div>
         <input name="email" type="email" placeholder="E-mail">
-        <input name="password" type="password" placeholder="Wachtwoord">
-        <input name="profile" type="file" accept=image/*>
-        <input name="firstname" type="text" placeholder="Voornaam">
-        <input name="lastname" type="text" placeholder="Achternaam">
-        <input name="age" type="number" placeholder="Leeftijd">
-        <input name="location" type="text" placeholder="Woonplaats">
+        <input name="password" type="password" placeholder="Password">
+        <input name="profile" type="file" accept=".jpg, .jpeg, .png, .gif">
+        <input name="firstname" type="text" placeholder="First Name">
+        <input name="lastname" type="text" placeholder="Last Name">
+        <input name="age" type="number" min="16" max="45" placeholder="Age">
+        <input name="location" type="text" placeholder="Location">
         <input name="bio" type="text" placeholder="Bio">
         <label>Choose your main genre<br>
             <select name="genre">
@@ -56,5 +56,5 @@
                 <label><input type="radio" name="specialize" value="bandmember">Bandmember</label>
         
     </div>
-    <button>Registreren</button>
+    <button>Register</button>
 </form>

@@ -1,0 +1,389 @@
+.profile-tile 
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16)
+  padding: 30px
+  background: #fff !important
+  max-width: 600px
+  margin: 0 auto
+
+  h2
+    margin: 0
+    font-size: 25px
+    font-weight: bold
+    margin-top: 15px
+
+  h3
+    font-weight: 300
+    margin: 0
+    margin-top: 15px
+
+
+.profile-picture 
+  width: calc(100% + 63px)
+  position: relative
+  left: -30px
+  right: -60px
+  height: 300px
+  top: -30px
+  object-fit: cover
+
+.profile-item-content 
+  padding: 0 15px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  font-weight: lighter
+  color: #707070
+
+
+.profile-item-content > div:nth-child(2),
+.profile-item-content > div:first-child 
+  width: 100%
+
+
+@media only screen and (max-width: 500px) 
+  .profile-picture 
+    width: 315px
+    height: 315px
+  
+.profile-item-content div
+  display: flex
+
+.profile-item-content div p:first-child
+  font-weight: 600
+  margin-right: 10px
+
+
+.profile-header
+  position: relative
+
+  &__edit
+    position: absolute
+    top: 20px 
+    right: 20px
+    margin-top: 0
+
+  img
+    width: 100%
+    height: 300px
+    object-fit: cover
+
+.profile-intro
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &__left
+    h1
+      margin-bottom: .3em
+      margin-top: 0
+
+    small
+      font-size: 1.1rem
+      max-width: 160px
+      display: inline-block
+
+  &__right
+    min-width: 138px
+    margin-left: 15px
+    margin-bottom: -17px
+
+    img
+      height: 25px
+      
+    a      
+      margin-right: 15px
+
+      &:last-child
+        margin-right: 0 
+
+.profile-meta
+  display: flex
+  margin-top: 15px
+
+  &__item
+    background: var(--color-bg)
+    border-radius: 4px 
+    margin-right: 15px
+    padding: 10px
+    width: 90px
+    height: 90px
+    text-align: center
+    display: flex
+    justify-content: center
+    align-items: center
+    
+    &:last-child
+      margin-right: 0
+    
+    h3
+      color: var(--color-main)
+      font-weight: 400
+      font-size: 1rem
+      margin: 0
+
+      small
+        color: var(--color-body)
+        display: block
+        font-weight: 500
+        margin-top: 5px
+
+.profile-about
+  margin-top: 30px
+
+  h2
+    margin: 0
+    margin-bottom: 8px
+  p
+    margin: 0
+
+.profile-gallery
+  display: flex
+  flex-wrap: wrap
+  margin-top: 30px
+  
+  img
+    object-fit: cover
+    height: 180px
+    border-radius: 7px
+    margin-right: 5px
+    width: calc(50% - 2.5px)
+    margin-bottom: 5px
+
+    &:nth-child(3n)
+      width: 100%
+
+    &:nth-child(2n)
+      margin-right: 0
+
+main.main-content
+  @media(max-width: 450px)
+    padding: 40px
+
+
+.ice-breaker--msg
+  background: var(--color-secundary)
+  padding: 17px 20px 13px 20px
+  border-radius: 6px 0px 0px 6px
+  position: fixed
+  opacity: 0
+  animation: slide-left .66s forwards 3s
+  width: 100%
+  text-align: center
+  transition: .6s all ease
+  top: 0
+  left: 0
+  transition: .3s all ease
+
+  p
+    margin: 0
+
+
+
+.is-icebreaker-r-active
+  .js-enabled
+
+    .icebreaker-overlay
+      visibility: visible
+      opacity: 1
+
+    .icebreaker-r
+      visibility: visible
+      opacity: 1
+      transform: translateY(-50%)
+
+.js-enabled
+  .icebreaker-overlay
+    position: fixed
+    background: rgba(#000, .3)
+    left: 0
+    right: 0
+    top: 0
+    z-index: 9
+    width: 100vw
+    height: 100vh
+    visibility: hidden
+    opacity: 0
+    transition: .3s all ease
+
+  .icebreaker-r
+    position: fixed
+    left: 0
+    right: 0
+    margin: 0 auto
+    top: 50%
+    border-radius: 5px
+    z-index: 10
+    background: #fff
+    max-width: 80%
+    width: 400px
+    visibility: hidden
+    opacity: 0
+    transition: .3s all ease
+    transform: translateY(-45%)
+
+    .ice-breaker-r__inner
+      padding: 40px 45px 
+      padding-bottom: 25px
+      padding-top: 20px
+
+      @media(max-width: 450px)
+        padding: 0px 25px
+        padding-bottom: 23px
+        padding-top: 10px
+
+    h4
+      color: var(--color-main)
+      text-transform: uppercase
+      font-weight: 400
+      font-size: 0.9rem
+      margin-bottom: 0.6em
+
+    p.feedback
+      margin-top: 0
+
+    h2
+      font-size: 2rem
+      margin-top: 0.5em
+      margin-bottom: 0.5em
+
+    img
+      max-width: 100%
+
+    .btn
+      max-width: 60%
+      margin: 0 auto
+      margin-top: 20px
+      display: block
+
+    &-option
+      background: #fff
+      border-radius: 50%
+      width: 50px
+      height: 50px
+      position: absolute
+      left: 0
+      right: 0
+      margin: 0 auto
+      top: 56.5%
+      transform: translateY(-50%)
+      display: flex
+      justify-content: center
+      align-items: center
+      font-weight: 500
+      box-shadow: 0px 0px 0px 10px rgba(255,255,255,0.2)
+
+    &__back
+      border: none
+      text-align: center
+      width: 100%
+      color: var(--color-body)
+      font-size: 1.1rem
+      margin-top: 15px
+      opacity: .7
+      font-weight: 600
+      transition: .3s all ease
+      cursor: pointer
+      background: none
+
+      &:hover
+        opacity: .3
+
+      &:focus
+        outline: none
+
+.ice-breaker-people
+  margin-top: 20px
+  margin-bottom: -10px
+
+  img
+    border-radius: 50%
+    width: 45px
+    height: 45px
+    border: 2px solid #fff
+    object-fit: cover
+
+    &:last-child
+      position: relative
+      left: -20px
+      z-index: -1
+
+
+@keyframes slide-left
+  from
+    transform: translateX(100%)
+    opacity: 0
+
+  to
+    transform: translateX(0)
+    opacity: 1
+
+.iceBreakerData
+  display: flex
+  overflow: scroll
+  max-height: 300px
+
+  img
+    height: 200px
+    object-fit: cover
+    width: 100%
+
+.during-conv
+  display: none
+
+.conv
+  height: 300px
+  padding-top: 30px
+
+.conv__item
+  display: flex
+  align-items: center
+  margin-bottom: 15px
+
+  &--left
+    flex-direction: row-reverse
+
+    .conv__msg
+      border-bottom-left-radius: 40px
+      border-bottom-right-radius: 0
+      margin-left: 0
+      margin-right: 10px
+
+  img
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    object-fit: cover
+
+
+.conv__msg
+  border: rgba(155, 155, 183, 0.3) 1px solid
+  padding: 10px
+  border-radius: 40px
+  border-bottom-left-radius: 0
+  margin-left: 10px
+  position: relative
+  top: -5px
+
+.fade-in
+  animation: fade-in .3s 3s forwards
+  transform: translateY(10px)
+  opacity: 0
+
+@keyframes fade-in
+  from
+    transform: translateY(10px)
+    opacity: 0
+
+  to
+    transform: translateY(0px)
+    opacity: 1
+
+
+.hide-msg
+  opacity: 0
+  visibility: hidden
+
+.profile-item-content p
+  margin: 9px 0
