@@ -79,7 +79,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 100px;
+  padding: 10px 100px;
   border-bottom: 1px solid #efefef;
 }
 
@@ -113,6 +113,10 @@ nav ul li:last-child {
 
 .nav-title-white:hover {
   color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-link:last-of-type {
+  margin-left: 10px;
 }
 
 .nav-link-white {

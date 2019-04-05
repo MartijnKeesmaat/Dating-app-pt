@@ -1,13 +1,11 @@
 <nav>
     <a class="nav-title" href="/">Muze</a>
     <div>
-        <ul>
-            <% if (isAuthenticated) { %>
-                <li><a class="nav-link" href=/logout>Logout</a></li>
-            <% }else { %>
-                <li><a class="nav-link" href=/register>Register</a></li>
-                <li><a class="nav-link" href=/login>Login</a></li>
-            <% } %>
-        </ul>
+        <% if (isAuthenticated) { %>
+            <a class="nav-link" href="/logout">Logout</a>
+        <% }else { %>
+            <a class="nav-link" href="/register">Register</a>
+            <a class="nav-link" href="/login">Login</a>
+        <% } %>
     </div>
 </nav>
