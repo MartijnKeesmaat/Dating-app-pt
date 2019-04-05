@@ -207,6 +207,8 @@ exports.filter = function(req, res) {
       data: data,
       isAuthenticated: req.session.isAuthenticated,
       iceBreakerData: {images: []},
+			login: req.session.login,
+			user: req.session.user
     });
   }
 };
