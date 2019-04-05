@@ -28,7 +28,6 @@ exports.home = function(req, res) {
       res.render('home.ejs', {
         data: data,
         isAuthenticated: req.session.isAuthenticated,
-        iceBreakerData: {images: []},
       });
     }
   }
@@ -38,7 +37,7 @@ exports.profile = function(req, res, next) {
   const id = req.params.id;
 
   db.collection('profile').findOne({
-    _id: mongo.ObjectID(id),
+    _id: mongo.ObjectId(id),
   }, done);
 
   function done(err, data) {
@@ -67,18 +66,13 @@ exports.form = function(req, res) {
     age: Number(req.body.age),
     location: req.body.location,
     bio: req.body.bio,
-    genre: req.body.genre,
-    instrument: req.body.instrument,
-    specialize: req.body.specialize,
     date: Date.parse(Date(Date.now())),
   }, done);
 
   function done(err, data) {
-    const sess = req.session;
     if (err) {
       next(err);
     } else {
-      sess.isAuthenticated = true;
       res.redirect('/' + data.insertedId);
     }
   }
@@ -105,51 +99,6 @@ exports.loginForm = function(req, res) {
       res.redirect('/login');
     }
   }
-};
-
-exports.iceBreaker = function(req, res) {
-  const sess = req.session;
-  const iceBreakerData = {
-    images: {},
-  };
-
-  iceBreakerData.images = []; // reset data
-  iceBreakerData.images.push(
-      `/img/icebreaker/${req.body.q1}.jpg`,
-      `/img/icebreaker/${req.body.q2}.jpg`,
-      `/img/icebreaker/${req.body.q3}.jpg`
-  );
-  // console.log(req.session.user);
-  // res.render('home', {
-  //   // user: req.session.user,
-  // });
-
-  if (!req.session.isAuthenticated) {
-    res.redirect('/login');
-  } else {
-    db.collection('profile').find().toArray(done);
-    function done(err, data) {
-      res.render('home', {
-        iceBreakerData,
-        data: data,
-        isAuthenticated: req.session.isAuthenticated,
-      });
-    }
-  }
-  // db.collection('profile').findOne({
-  //   email: email,
-  // }, done);
-
-  // function done(err, data) {
-  //   if (data && data.password === req.body.password) {
-  //     req.session.user = data;
-  //     sess.isAuthenticated = true;
-  //     res.redirect('/');
-  //   } else {
-  //     sess.isAuthenticated = false;
-  //   }
-  // }
-  // res.redirect('/');
 };
 
 exports.logout = function(req, res) {
@@ -180,13 +129,11 @@ exports.filter = function(req, res) {
     res.render('home.ejs', {
       data: data,
       isAuthenticated: req.session.isAuthenticated,
-      iceBreakerData: {images: []},
     });
   }
 };
 
 exports.remove = function(req, res, next) {
-  const sess = req.session;
   const id = req.params.id;
   db.collection('profile').deleteOne({
     _id: mongo.ObjectID(id),
@@ -196,8 +143,6 @@ exports.remove = function(req, res, next) {
     if (err) {
       next(err);
     } else {
-      // logout
-      sess.isAuthenticated = false;
       res.json({status: 'ok'});
     }
   }

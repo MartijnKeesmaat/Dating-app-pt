@@ -1,5 +1,5 @@
 <% include partials/head.ejs %>
-<title><%= data.name %> - Dating app</title>
+<title><%= data.name %> - Dating app </title>
 
 <!--navbar-->
 <% include partials/header.ejs %>
@@ -30,6 +30,28 @@
                 <p>Bio:</p>
                 <p><%= data.bio %></p>
             </div>
+            <% if (data.genre) { %>
+            <div class="genre">
+                <p>Genre:</p>
+                <p><%= data.genre %></p>
+            </div>
+            <% } %>
+
+            <% if (data.instrument) { %>
+            <div class="instrument">
+                <p>Instrument:</p>
+                <p><%= data.instruments %></p>
+            </div>
+            <% } %>
+
+            
+            <% if (data.specialize) { %>
+            <div class="specialize">
+                <p>Specialize:</p>
+                <p><%= data.specialize %></p>    
+            </div>
+            <% } %>
+
             <button id=js-remove data-id="<%= data._id %>" class=danger>Verwijder</button>
             <p class="js-delete">Het profiel kon niet verwijderd worden!</p>
         </div>
