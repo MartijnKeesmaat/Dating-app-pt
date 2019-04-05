@@ -76,10 +76,16 @@ button:focus {
 /*#endregion COMMON STYLES*/
 
 /*#region NAVBAR*/
-nav > div > ul > img {
+
+.session { float:right;
+margin-top: -3.2em;
+margin-right: 2.5em;}
+.sessionImage {
 width: 3em;
 height: 3em;
-border-radius: 2em}
+border-radius: 2em;
+margin-left: -1em;
+margin-top: -0.3em;}
 nav {
   display: grid;
   grid-template-columns: 75% 25%;
@@ -87,6 +93,7 @@ nav {
   align-items: center;
   padding: 0 100px;
   border-bottom: 1px solid #efefef;
+  height: 4em;
 }
 
 nav ul {

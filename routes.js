@@ -50,6 +50,8 @@ exports.profile = function(req, res, next) {
 			res.render('profile.ejs', {
 				data: data,
 				isAuthenticated: req.session.isAuthenticated,
+				login: req.session.login,
+				user: req.session.user
 			});
 		}
 	}
@@ -83,8 +85,9 @@ exports.form = function(req, res) {
 	}
 }
 
-exports.login = function(req, res) {
-	res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated});
+exports.login = function(req, res, data) {
+	res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated,
+	login: req.session.login});
 };
 
 exports.loginForm = function(req, res) {
