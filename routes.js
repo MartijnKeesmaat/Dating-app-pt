@@ -36,7 +36,6 @@ exports.home = function(req, res) {
 
 exports.profile = function(req, res, next) {
   const id = req.params.id;
-
   db.collection('profile').findOne({
     _id: mongo.ObjectID(id),
   }, done);
@@ -48,6 +47,7 @@ exports.profile = function(req, res, next) {
       res.render('profile.ejs', {
         data: data,
         isAuthenticated: req.session.isAuthenticated,
+        user: req.session.user,
       });
     }
   }
@@ -67,16 +67,27 @@ exports.form = function(req, res) {
     age: Number(req.body.age),
     location: req.body.location,
     bio: req.body.bio,
+    genre: req.body.genre,
+    instrument: req.body.instrument,
+    specialize: req.body.specialize,
     date: Date.parse(Date(Date.now())),
   }, done);
 
   function done(err, data) {
-    const sess = req.session;
     if (err) {
       next(err);
     } else {
-      sess.isAuthenticated = true;
-      res.redirect('/' + data.insertedId);
+      const email = req.body.email;
+      const password = req.body.password;
+      db.collection('profile').findOne({
+        email: email,
+        password: password,
+      }, user);
+      function user(err, data) {
+        req.session.isAuthenticated = true;
+        req.session.user = data;
+        res.redirect('/');
+      }
     }
   }
 };

@@ -1119,6 +1119,7 @@ p {
   text-align: center;
   transition: 0.6s all ease;
   top: 0;
+  left: 0;
   transition: 0.3s all ease;
 }
 .ice-breaker--msg p {
