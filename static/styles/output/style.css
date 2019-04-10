@@ -8,6 +8,74 @@
   --color-secundary: #FFF3CE;
 }
 
+@keyframes disco-beat {
+  0% {
+    transform: scale(1);
+    color: black;
+    text-shadow: none;
+  }
+
+  10% {
+    transform: scale(1.1);
+    color: #5EE1EA;
+    text-shadow: 0em 0em 0.03em black;
+  }
+
+  20% {
+    transform: scale(1);
+    color: black;
+    text-shadow: none;
+  }
+
+  30% {
+    transform: scale(1.1);
+    color: #EAA265;
+    text-shadow: 0em 0em 0.03em black;
+  }
+
+  40% {
+    transform: scale(1);
+    color: black;
+    text-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.1);
+    color: #FDFF5E;
+    text-shadow: 0em 0em 0.03em black;
+  }
+
+  60% {
+    transform: scale(1);
+    color: black;
+    text-shadow: none;
+  }
+
+  70% {
+    transform: scale(1.1);
+    color: #89B3E4;
+    text-shadow: 0em 0em 0.03em black;
+  }
+
+  80% {
+    transform: scale(1);
+    color: black;
+    text-shadow: none;
+  }
+
+  90% {
+    transform: scale(1.1);
+    color: #27CF81;
+    text-shadow: 0em 0em 0.03em black;
+  }
+
+  100% {
+    transform: scale(1);
+    color: black;
+    text-shadow: none;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -97,14 +165,16 @@ nav ul li:last-child {
 }
 
 .nav-title {
-  font-size: 22px;
-  font-weight: 600;
+  font-family: Nevis, sans-serif;
+  font-weight: 700;
+  font-size: 1.75em;
   color: #333333;
-  transition: color 0.2s linear;
+  animation: none;
+  transition: animation 1s ease;
 }
 
 .nav-title:hover {
-  color: rgba(51, 51, 51, 0.7);
+  animation: disco-beat 2.5s ease infinite;
 }
 
 .nav-title-white {
