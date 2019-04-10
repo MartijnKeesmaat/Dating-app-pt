@@ -18,7 +18,7 @@ Muze is built using:
 - Mongodb
 - Heroku
 
-For more see [package.json](https://github.com/MartijnKeesmaat/Dating-app-pt/blob/master/package.json)
+For more see [package.json](https://github.com/MartijnKeesmaat/Dating-app-pt/blob/develop/package.json)
 
 ## Installation 
 Clone the repository:
