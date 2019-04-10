@@ -275,6 +275,14 @@ nav div a:first-of-type:hover {
   color: #70B3EE;
 }
 
+nav div a:last-of-type {
+  color: #FD8D81;
+}
+
+nav div a:last-of-type:hover {
+  color: white;
+}
+
 .nav-title-white {
   color: white;
 }
@@ -466,7 +474,7 @@ main section div > section {
 .login-form button {
   display: block;
   width: 100%;
-  background-color: #FF575C;
+  background-color: #FD8D81;
   border-radius: 0.25em;
   color: white;
   padding: 0.75em;
@@ -477,7 +485,7 @@ main section div > section {
 }
 
 .login-form button:hover {
-  background-color: #FF7F72;
+  background-color: #FFA49A;
 }
 
 .login-form form {
