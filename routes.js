@@ -19,22 +19,22 @@ mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
 });
 
 exports.home = function(req, res) {
-	// Check value in session variable
-	if (!req.session.isAuthenticated) {
-		res.redirect('/login');
-	} else {
-		console.log(req.session.user);
-		db.collection('profile').find().toArray(done);
-		function done(err, data) {
-			res.render('home.ejs', {
-				data: data,
-				isAuthenticated: req.session.isAuthenticated,
-				login: req.session.login,
-				user: req.session.user,
-				iceBreakerData: {images: []}
-			});
-		}
-	}
+  // Check value in session variable
+  if (!req.session.isAuthenticated) {
+    res.redirect('/login');
+  } else {
+    console.log(req.session.user);
+    db.collection('profile').find().toArray(done);
+    function done(err, data) {
+      res.render('home.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+        login: req.session.login,
+        user: req.session.user,
+        iceBreakerData: {images: []},
+      });
+    }
+  }
 };
 
 exports.profile = function(req, res, next) {
@@ -43,22 +43,22 @@ exports.profile = function(req, res, next) {
     _id: mongo.ObjectID(id),
   }, done);
 
-	db.collection('profile').findOne({
-		_id: mongo.ObjectID(id),
-	}, done);
+  db.collection('profile').findOne({
+    _id: mongo.ObjectID(id),
+  }, done);
 
-	function done(err, data) {
-		if (err) {
-			next(err);
-		} else {
-			res.render('profile.ejs', {
-				data: data,
-				isAuthenticated: req.session.isAuthenticated,
-				login: req.session.login,
-				user: req.session.user
-			});
-		}
-	}
+  function done(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.render('profile.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+        login: req.session.login,
+        user: req.session.user,
+      });
+    }
+  }
 };
 
 exports.register = function(req, res) {
@@ -101,8 +101,10 @@ exports.form = function(req, res) {
 };
 
 exports.login = function(req, res, data) {
-	res.render('login.ejs', {isAuthenticated: req.session.isAuthenticated,
-	login: req.session.login});
+  res.render('login.ejs', {
+    isAuthenticated: req.session.isAuthenticated,
+    login: req.session.login,
+  });
 };
 
 exports.loginForm = function(req, res) {
@@ -112,25 +114,22 @@ exports.loginForm = function(req, res) {
     email: email,
   }, done);
 
-	function done(err, data) {
-		if (data && data.password === req.body.password) {
-			req.session.user = data;
-			sess.isAuthenticated = true;
+  function done(err, data) {
+    if (data && data.password === req.body.password) {
+      req.session.user = data;
+      sess.isAuthenticated = true;
 
-			req.session.login = {
+      req.session.login = {
         firstname: data.firstname,
-				id: data.id
-      }
+        id: data.id,
+      };
 
-			res.redirect('/');
-
-
-		} else {
-			sess.isAuthenticated = false;
-			res.redirect('/login');
-
-		}
-	}
+      res.redirect('/');
+    } else {
+      sess.isAuthenticated = false;
+      res.redirect('/login');
+    }
+  }
 };
 
 exports.iceBreaker = function(req, res) {
@@ -159,6 +158,8 @@ exports.iceBreaker = function(req, res) {
         iceBreakerData,
         data: data,
         isAuthenticated: req.session.isAuthenticated,
+        user: req.session.user,
+        login: req.session.login,
       });
     }
   }
@@ -207,8 +208,8 @@ exports.filter = function(req, res) {
       data: data,
       isAuthenticated: req.session.isAuthenticated,
       iceBreakerData: {images: []},
-			login: req.session.login,
-			user: req.session.user
+      login: req.session.login,
+      user: req.session.user,
     });
   }
 };
