@@ -1,0 +1,360 @@
+*  
+  box-sizing: border-box 
+
+
+label, input, textarea, button  
+  margin: 1em 0 
+
+input, textarea, button 
+  font-size: 1em
+  padding: 0.5em
+  border-width: 0
+  border-radius: 0.25em
+
+
+input, textarea  
+  width: 100% 
+
+.danger 
+  background: red
+  color: white
+
+
+/*#region COMMON STYLES*/
+
+body 
+  color: #333333
+  margin: 0
+
+
+a 
+  cursor: pointer
+  color: #4CCABA
+  transition: .3s ease
+  text-decoration: none
+
+  &:hover
+    opacity: .6
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus 
+    outline: none
+
+
+.button-blue 
+  background-color: #4CCABA
+  color: white
+  padding: 10px 60px
+  border: 2px solid #4CCABA
+  transition: background-color .2s linear
+
+
+.button-blue:hover 
+  background-color: transparent
+  color: #4CCABA
+
+
+@media only screen and (max-width: 500px) 
+  main 
+    padding: 30px
+  
+
+
+/*#endregion COMMON STYLES*/
+
+/*#region NAVBAR*/
+
+nav 
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 10px 100px
+  border-bottom: 1px solid #efefef
+
+
+nav ul 
+  list-style-type: none
+  display: flex
+
+
+nav ul li 
+  margin-right: 20px
+
+
+nav ul li:last-child 
+  margin-right: 0
+
+
+.nav-title 
+  font-size: 22px
+  font-weight: 600
+  color: #333333
+  transition: color .2s linear
+
+
+.nav-title:hover 
+  color: rgba(51,51,51,0.7)
+
+
+.nav-title-white 
+  color: white
+
+
+.nav-title-white:hover 
+  color: rgba(255,255,255,0.7)
+
+.nav-link:last-of-type 
+  margin-left: 10px
+
+.nav-link-white 
+  color: white
+
+
+.nav-link-white:hover 
+  color: rgba(255,255,255,0.7)
+
+
+@media only screen and (max-width: 500px) 
+  nav 
+    padding: 0 30px
+  
+
+/*#endregion NAVBAR*/
+
+/*#region HOME*/
+.home-main 
+  background-color: #F8F7F8
+ 
+
+.home-main .grid 
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+
+.filters 
+  display: flex
+  align-items: flex-end
+  margin-bottom: 30px
+  flex-direction: column
+
+
+.filter-options 
+  flex-direction: column
+  margin-top: 20px
+
+
+.filter-options div 
+  display: flex
+  align-items: center
+
+
+.filter-options input 
+  width: unset
+  margin-right: 10px
+  margin: 5px 10px 5px 0
+
+
+.filter-options label 
+  margin: 5px 0
+
+
+@media only screen and (max-width: 500px) 
+  .home-main .grid 
+    align-items: center
+    flex-direction: column
+  
+
+  .tile img 
+    width: 315px
+    height: 315px
+  
+
+
+/*#endregion HOME*/
+
+/*#region ABOUT*/
+
+.about-section 
+  display: flex
+
+
+.about-section img 
+  margin-right: 50px
+
+
+.about-section p 
+  margin: 0
+
+
+.about-section img 
+  max-width: 100%
+  max-height: 400px
+
+/*#endregion ABOUT*/
+
+/*#region LOGIN*/
+
+.login-main 
+  display: flex
+  flex-direction: column
+  justify-content: center
+  min-height: calc(100vh - 54px)
+  align-items: center
+
+
+.login-tile 
+  width: 90%
+  max-width: 320px
+
+.login-tile-flex 
+  display: flex
+  margin: 0 auto
+
+.login-tile-photo 
+  background-image: url(/img/hero.jpg)
+  background-size: cover
+  background-repeat: no-repeat
+
+
+.login-form 
+  margin: 30px
+  width: 100%
+
+
+// .login-form button 
+//   display: block
+//   width: 100%
+//   background-color: #4CCABA
+//   border: 2px solid #4CCABA
+//   border-radius: 0
+//   color: white
+//   padding: 10px
+//   , sans-serif
+//   cursor: pointer
+//   transition: background-color .2s linear
+
+
+.login-form button:hover 
+  background-color: transparent
+  color: #4CCABA
+
+
+.login-form form 
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  flex-grow: 1
+
+
+.login-form input 
+  width: 100%
+  border-bottom: 1px solid #cccccc
+  border-radius: 0
+
+
+
+
+/*#endregion LOGIN*/
+
+/*#region NOT FOUND*/
+
+.not-found-main 
+  display: flex
+  flex-direction: column
+  align-items: center
+  min-height: calc(100vh - 54px)
+  justify-content: space-evenly
+
+
+.not-found-main h1 
+  margin-top: 0px
+
+
+.not-found-main img 
+  width: 300px
+
+
+/*#endregion NOT FOUND*/
+
+
+
+/*#region FOOTER*/
+
+footer 
+  background: linear-gradient(to left, #B2E8E1, #4CCABA)
+  padding: 10px 100px
+  color: white
+  display: flex
+
+  small
+    color: #fff
+
+footer > div 
+  display: flex
+
+
+footer > div > p 
+  flex-basis: 65%
+
+
+footer > div > ul 
+  flex-basis: 35%
+
+footer
+  justify-content: space-between
+  align-items: center
+  background: var(--color-main)
+
+  h2
+    margin: 0
+
+ul.footer-socials
+  display: flex
+  margin: 0
+
+  li
+    margin-right: 20px  
+
+.footer-links 
+  margin-right: 40px
+  margin-left: 40px
+
+
+footer ul 
+  list-style-type: none
+  padding: 0
+
+
+footer ul a 
+  color: white
+  transition: color .2s linear
+
+
+@media only screen and (max-width: 500px) 
+  footer 
+    padding: 30px
+  
+  
+  footer p 
+    display: none
+  
+
+
+/*#endregion FOOTER*/
+
+/*#region REMOVE*/
+
+.js-delete 
+  color: red
+  font-weight: bold
+  display: none
+
+
+.display 
+  display: block!important
+
+
+.login-form
+  margin: 30px auto

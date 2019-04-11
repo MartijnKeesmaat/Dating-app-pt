@@ -1,18 +1,37 @@
 <% include partials/head.ejs %>
-<title><%= data.name %> - Dating app</title>
+<title><%= data.name %> - Dating app </title>
 
 <!--navbar-->
 <% include partials/header.ejs %>
+<div class="session">
 
+  <%if (user.profile !== null) {%>
+    <img class="sessionImage" src="/upload/<%= user.profile%>" alt="musician">
+  <%}
+  else {%>
+    <img class="sessionImage" src="img/musician.jpg" alt="musician">
+<%  }%>
+
+<% if (login.firstname == login.firstname) {%>
+  <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= login.firstname%></strong> </a>
+<%}%>
+</div>
 <!--Body-->
-<main class="profile-main">
+<main class="profile-main no-js">
+    <div class="icebreaker-overlay icebreaker__close"></div>
     <section class="profile-tile">
         <% if (data.profile) { %>
-            <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
+        <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
+
         <% } %>
+        <div class="profile-intro__right">
+            <img src="/img/icons/heart.svg" alt="">
+            <img src="/img/icons/chat.svg" alt="" class="icebreaker__open">
+            <img src="/img/icons/match-meter.svg" alt="">
+        </div>
         <div class="profile-item-title">
             <h2><%= data.firstname + ' ' + data.lastname %></h2>
-            <h2><%= data.age %></h2>
+            <h3><%= data.age %></h3>
         </div>
         <div class="profile-item-content">
             <div>
@@ -23,11 +42,105 @@
                 <p>Bio:</p>
                 <p><%= data.bio %></p>
             </div>
+            <% if (data.genre) { %>
+            <div class="genre">
+                <p>Genre:</p>
+                <p><%= data.genre %></p>
+            </div>
+            <% } %>
+
+            <% if (data.instrument) { %>
+            <div class="instrument">
+                <p>Instrument:</p>
+                <p><%= data.instruments %></p>
+            </div>
+            <% } %>
+
+            
+            <% if (data.specialize) { %>
+            <div class="specialize">
+                <p>Specialize:</p>
+                <p><%= data.specialize %></p>    
+            </div>
+            <% } %>
+
             <button id=js-remove data-id="<%= data._id %>" class=danger>Verwijder</button>
             <p class="js-delete">Het profiel kon niet verwijderd worden!</p>
         </div>
     </section>
+    <article class="icebreaker" id="icebreaker"><progress value="16.6" max="100"></progress>
+        <div class="icebreaker__inner">
+            <h2>Ice-breaker</h2>
+            <p class="ice-sub">Which one do you prefer</p>
+            <form action="/icebreaker" method="post">
+                <div class="icebreaker-option">or</div>
+                <fieldset class="active">
+                    <legend>Choose one</legend>
+                    <label for="banjo">
+                        <input class="ice-q" type="radio" name="q1" value="banjo" id="banjo" />
+                        <img src="/img/icebreaker/banjo.jpg" alt="banjo" />
+                    </label>
+                    <label for="gituar">
+                        <input class="ice-q" type="radio" name="q1" value="gituar" id="gituar" />
+                        <img src="/img/icebreaker/gituar.jpg" alt="gituar" />
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Choose one</legend>
+                    <label for="outside">
+                        <input class="ice-q" type="radio" name="q2" value="outside" id="outside" />
+                        <img src="/img/icebreaker/outside.jpg" alt="outside" />
+                    </label>
+                    <label for="party">
+                        <input class="ice-q" type="radio" name="q2" value="party" id="party" />
+                        <img src="/img/icebreaker/party.jpg" alt="party" />
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Choose one</legend>
+                    <label for="vynil">
+                        <input class="ice-q" type="radio" name="q3" value="vynil" id="vynil" />
+                        <img src="/img/icebreaker/vynil.jpg" alt="vynil" />
+                    </label>
+                    <label for="phone">
+                        <input class="ice-q" type="radio" name="q3" value="phone" id="phone" />
+                        <img src="/img/icebreaker/phone.jpg" alt="phone" />
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Choose one</legend>
+                    <label for="producer">
+                        <input class="ice-q" type="radio" name="q4" value="producer" id="producer" />
+                        <img src="/img/icebreaker/producer.jpg" alt="producer" />
+                    </label>
+                    <label for="switches">
+                        <input class="ice-q" type="radio" name="q4" value="switches" id="switches" />
+                        <img src="/img/icebreaker/switches.jpg" alt="switches" />
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Choose one</legend>
+                    <label for="drum">
+                        <input class="ice-q" type="radio" name="q5" value="drum" id="drum" />
+                        <img src="/img/icebreaker/drum.jpg" alt="drum" />
+                    </label>
+                    <label for="orchestra">
+                        <input class="ice-q" type="radio" name="q5" value="orchestra" id="orchestra" />
+                        <img src="/img/icebreaker/orchestra.jpg" alt="orchestra" />
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <p class="feedback">Je hebt alle vragen beantwoord. Jouw ijsbreker zal worden verstuurd naar
+                        <a href="#">Amelia Cabal</a>
+                    </p>
+                    <input type="submit" value="Verstuur ice-breaker" />
+                </fieldset>
+            </form><button class="icebreaker__back icebreaker__close">Ga terug</button>
+        </div>
+    </article>
 </main>
+
+
 
 <!--Footer-->
 <% include partials/footer.ejs %>

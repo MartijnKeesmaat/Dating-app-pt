@@ -21,13 +21,14 @@ express()
     .get('/', routes.home)
     .get('/register', routes.register)
     .post('/loginForm', routes.loginForm)
+    .post('/icebreaker', routes.iceBreaker)
     .get('/login', routes.login)
     .get('/logout', routes.logout)
     .post('/filter', routes.filter)
     .post('/add', upload.single('profile'), routes.form)
-    .use(notFound)
     .get('/:id', routes.profile)
     .delete('/:id', routes.remove)
+    .use(notFound)
     .listen(process.env.PORT || 8000);
 
 function notFound(req, res) {
