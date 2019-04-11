@@ -3,7 +3,9 @@
 
 <!--navbar-->
 <% include partials/header.ejs %>
-<%if (user.profile !== null) {%>
+<div class="session">
+
+  <%if (user.profile !== null) {%>
     <img class="sessionImage" src="/upload/<%= user.profile%>" alt="musician">
   <%}
   else {%>
@@ -13,6 +15,7 @@
 <% if (login.firstname == login.firstname) {%>
   <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= login.firstname%></strong> </a>
 <%}%>
+</div>
 <!--Body-->
 <main class="profile-main no-js">
     <div class="icebreaker-overlay icebreaker__close"></div>

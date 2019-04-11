@@ -17,7 +17,7 @@
     "mongodb": "^3.1.13",
     "multer": "^1.3.0",
     "request": "^2.88.0",
-    "sass": "^1.17.3",
+    "sass": "^1.17.4",
     "slug": "^0.9.1"
   },
   "devDependencies": {
@@ -30,5 +30,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "sass": "sass --watch static/styles/index.sass static/styles/output/style.css"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }

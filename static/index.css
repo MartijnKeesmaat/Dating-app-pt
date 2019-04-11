@@ -207,10 +207,25 @@ button:focus {
 /*#endregion COMMON STYLES*/
 
 /*#region NAVBAR*/
+
+.session { float:right;
+margin-top: -3.2em;
+margin-right: 2.5em;}
+
+.sessionImage {
+width: 3em;
+height: 3em;
+border-radius: 2em;
+margin-left: -1em;
+margin-top: -0.3em;}
+
 nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: 75% 25%;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid #efefef;
+  height: 4em;
   background-color: transparent;
   padding: 0 7.5em;
   margin-top: 1.25em;
@@ -268,6 +283,23 @@ nav ul li:first-of-type a:hover {
 .nav-link-white:hover {
   color: rgba(255,255,255,0.7);
 }
+
+@media only screen and (max-width: 500px) {
+  nav {
+    padding: 0 30px;
+  }
+}
+
+.lastLogIn
+{ background-color: #F8F7F8;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  width: 10em;
+  text-align: center;
+  font-size: .9em;
+  float: left;
+  }
 /*#endregion NAVBAR*/
 
 /*#region HOME*/
@@ -615,6 +647,17 @@ footer small {
   display: block;
   margin-top: 2.5em;
 }
+
+@media only screen and (max-width: 500px) {
+  footer {
+    padding: 30px;
+  }
+
+  footer p {
+    display: none;
+  }
+}
+
 /*#endregion FOOTER*/
 
 /*#region REMOVE*/
