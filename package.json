@@ -30,5 +30,8 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "sass": "sass --watch static/styles/index.sass static/styles/output/style.css"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
