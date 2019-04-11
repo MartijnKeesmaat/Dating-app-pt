@@ -4,7 +4,18 @@
 <!--navbar-->
 <% include partials/header.ejs %>
 
+<%if (user.profile !== null) {%>
+    <img class="sessionImage" src="/upload/<%= user.profile%>" alt="musician">
+  <%}
+  else {%>
+    <img class="sessionImage" src="img/musician.jpg" alt="musician">
+<%  }%>
+
+<% if (user.firstname == user.firstname) {%>
+  <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= user.firstname%></strong> </a>
+<%}%>
 <!--Body-->
+
 <main class="home-main js-enabled">
     <div class="icebreaker-overlay icebreaker__close"></div>
 

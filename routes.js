@@ -18,7 +18,7 @@ mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
   db = client.db(process.env.DB_NAME);
 });
 
-exports.home = function(req, res) {
+exports.home = function(req, res, data) {
   // Check value in session variable
   if (!req.session.isAuthenticated) {
     res.redirect('/login');
@@ -29,6 +29,8 @@ exports.home = function(req, res) {
         data: data,
         isAuthenticated: req.session.isAuthenticated,
         iceBreakerData: {images: []},
+        login: req.session.login,
+        user: req.session.user
       });
     }
   }
@@ -48,6 +50,7 @@ exports.profile = function(req, res, next) {
         data: data,
         isAuthenticated: req.session.isAuthenticated,
         user: req.session.user,
+        login: req.session.login
       });
     }
   }
@@ -86,6 +89,7 @@ exports.form = function(req, res) {
       function user(err, data) {
         req.session.isAuthenticated = true;
         req.session.user = data;
+        login: req.session.login,
         res.redirect('/');
       }
     }
@@ -110,6 +114,10 @@ exports.loginForm = function(req, res) {
       res.redirect('/');
     } else {
       sess.isAuthenticated = false;
+      req.session.login = {
+        firstname: data.firstname,
+        id: data.id,
+      };
       res.redirect('/login');
     }
   }

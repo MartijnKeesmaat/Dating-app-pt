@@ -4,13 +4,23 @@
 <!--navbar-->
 <% include partials/header.ejs %>
 
+<%if (user.profile !== null) {%>
+    <img class="sessionImage" src="/upload/<%= user.profile%>" alt="musician">
+  <%}
+  else {%>
+    <img class="sessionImage" src="img/musician.jpg" alt="musician">
+<%  }%>
+
+<% if (login.firstname == login.firstname) {%>
+  <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= login.firstname%></strong> </a>
+<%}%>
 <!--Body-->
 <main>
     <h1>About Muze</h1>
     <section class="about-section">
         <img alt="couple holding hands" src="/img/couple.jpg">
         <p>
-        Find your muse with Muze. Discover whose music taste match yours and go on a date to dance the night away. Muze lets you find people who listen to the same music you do. Just filter a music genre, see whose favorite track finds your tune, test each others knowledge, and start the talk. 
+        Find your muse with Muze. Discover whose music taste match yours and go on a date to dance the night away. Muze lets you find people who listen to the same music you do. Just filter a music genre, see whose favorite track finds your tune, test each others knowledge, and start the talk.
         </p>
     </section>
 </main>

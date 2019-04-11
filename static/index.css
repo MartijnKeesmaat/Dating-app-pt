@@ -50,7 +50,7 @@
     color: white;
     text-shadow: none;
   }
-  
+
   30% {
     transform: scale(1.1);
     color: #EAA265;
@@ -92,7 +92,7 @@
     color: #27CF81;
     text-shadow: 0em 0em 0.03em white;
   }
-  
+
   100% {
     transform: scale(1);
     color: white;
@@ -105,7 +105,7 @@
     border-bottom-color: #6A777B;
     border-top-color: transparent;
   }
-  
+
   50% {
     border-bottom-color: #FF6867;
     border-top-color: #FF6867;
@@ -116,7 +116,7 @@
   0% {
   transform: translateY(-120vh);
   }
-  
+
   75% {
   transform: translateY(0.25em);
   }
@@ -130,7 +130,7 @@
   0% {
   transform: translateY(0);
   }
-  
+
   25% {
   transform: translateY(0.25em);
   }
@@ -207,7 +207,6 @@ button:focus {
 /*#endregion COMMON STYLES*/
 
 /*#region NAVBAR*/
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -274,7 +273,7 @@ nav ul li:first-of-type a:hover {
 /*#region HOME*/
 .home-main {
   background-color: #F8F7F8;
-} 
+}
 
 .home-main .grid {
   display: flex;
