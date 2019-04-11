@@ -32,33 +32,7 @@ exports.home = function(req, res, data) {
         login: req.session.login,
         user: req.session.user,
         iceBreakerData: {images: []},
-        login: req.session.login,
-        user: req.session.user
-      });
-    }
-  }
-};
 
-exports.profile = function(req, res, next) {
-  const id = req.params.id;
-  db.collection('profile').findOne({
-    _id: mongo.ObjectID(id),
-  }, done);
-
-  db.collection('profile').findOne({
-    _id: mongo.ObjectID(id),
-  }, done);
-
-  function done(err, data) {
-    if (err) {
-      next(err);
-    } else {
-      res.render('profile.ejs', {
-        data: data,
-        isAuthenticated: req.session.isAuthenticated,
-        login: req.session.login,
-        user: req.session.user,
-        login: req.session.login
       });
     }
   }
@@ -100,6 +74,31 @@ exports.form = function(req, res) {
         login: req.session.login,
         res.redirect('/');
       }
+    }
+  }
+};
+
+exports.profile = function(req, res, next) {
+  const id = req.params.id;
+  db.collection('profile').findOne({
+    _id: mongo.ObjectID(id),
+  }, done);
+
+  db.collection('profile').findOne({
+    _id: mongo.ObjectID(id),
+  }, done);
+
+  function done(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.render('profile.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+        login: req.session.login,
+        user: req.session.user
+
+      });
     }
   }
 };
