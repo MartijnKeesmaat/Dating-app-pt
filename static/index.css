@@ -563,7 +563,7 @@ label:nth-of-type(3) label:last-of-type {
   flex-direction: row;
 }
 
-label:nth-of-type(3) label:last-of-type input {
+label:nth-of-type(3) input {
   margin: 0em;
 }
 
