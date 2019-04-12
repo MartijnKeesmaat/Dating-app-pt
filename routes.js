@@ -23,7 +23,6 @@ exports.home = function(req, res, data) {
   if (!req.session.isAuthenticated) {
     res.redirect('/login');
   } else {
-    console.log(req.session.user);
     db.collection('profile').find().toArray(done);
     function done(err, data) {
       res.render('home.ejs', {
@@ -80,10 +79,6 @@ exports.form = function(req, res) {
 
 exports.profile = function(req, res, next) {
   const id = req.params.id;
-  db.collection('profile').findOne({
-    _id: mongo.ObjectID(id),
-  }, done);
-
   db.collection('profile').findOne({
     _id: mongo.ObjectID(id),
   }, done);
@@ -151,10 +146,7 @@ exports.iceBreaker = function(req, res) {
       `/img/icebreaker/${req.body.q2}.jpg`,
       `/img/icebreaker/${req.body.q3}.jpg`
   );
-  // console.log(req.session.user);
-  // res.render('home', {
-  //   // user: req.session.user,
-  // });
+
 
   if (!req.session.isAuthenticated) {
     res.redirect('/login');
@@ -170,20 +162,7 @@ exports.iceBreaker = function(req, res) {
       });
     }
   }
-  // db.collection('profile').findOne({
-  //   email: email,
-  // }, done);
 
-  // function done(err, data) {
-  //   if (data && data.password === req.body.password) {
-  //     req.session.user = data;
-  //     sess.isAuthenticated = true;
-  //     res.redirect('/');
-  //   } else {
-  //     sess.isAuthenticated = false;
-  //   }
-  // }
-  // res.redirect('/');
 };
 
 exports.logout = function(req, res) {
