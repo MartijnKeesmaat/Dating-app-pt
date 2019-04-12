@@ -548,6 +548,40 @@ form input[type="number"] {
 form input[type="file"] {
   border: none;
 }
+/* REGISTRATION PART 2*/
+label{
+  color: #757575;
+}
+
+label > select{
+  width: 100%;
+  margin: 1em 0;
+  background: #ececec;
+  border: none;
+  border-bottom: solid 0.1em;
+  height: 3em;
+}
+
+label:nth-of-type(3) {
+  display: flex;
+  flex-direction: column;
+}
+
+label:nth-of-type(3) label:last-of-type {
+  flex-direction: row;
+}
+
+label:nth-of-type(3) input {
+  margin: 0em;
+}
+
+label > input[type="radio"] {
+  width: 10%;
+}
+
+/* --------- */
+
+
 /*#endregion LOGIN*/
 
 /*#region NOT FOUND*/
