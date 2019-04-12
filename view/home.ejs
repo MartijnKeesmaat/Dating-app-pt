@@ -5,16 +5,16 @@
 <% include partials/header.ejs %>
 <div class="session">
 
-  <%if (user.profile !== null) {%>
+    <%if (user.profile !== null) {%>
     <img class="sessionImage" src="/upload/<%= user.profile%>" alt="musician">
-  <%}
+    <%}
   else {%>
     <img class="sessionImage" src="img/musician.jpg" alt="musician">
-<%  }%>
+    <%  }%>
 
-<% if (user.firstname == user.firstname) {%>
-  <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= user.firstname%></strong> </a>
-<%}%>
+    <% if (user.firstname == user.firstname) {%>
+    <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= user.firstname%></strong> </a>
+    <%}%>
 </div>
 <!--Body-->
 
@@ -29,8 +29,7 @@
     <div class="icebreaker-r">
         <div class="ice-breaker-r__inner">
             <div class="before-conv">
-                <div class="ice-breaker-people"><img src="http://localhost:8000/upload/2.jpg" /><img
-                        src="http://localhost:8000/upload/1.jpg" />
+                <div class="ice-breaker-people"><img src="/upload/2.jpg" /><img src="/upload/1.jpg" />
                 </div>
                 <h2>Begin een gesprek</h2>
                 <p>Leanne Graham en jij vonden allebei deze onderwerpen interessant</p>
@@ -91,10 +90,10 @@
         </a>
         <% } %>
     </section>
-</main>
+    </main>
 
-<!--Footer-->
-<% include partials/footer.ejs %>
+    <!--Footer-->
+    <% include partials/footer.ejs %>
 
-<!--Script tags-->
-<script src=/home.js> </script> <% include partials/tail.ejs %>
+    <!--Script tags-->
+    <script src=/home.js> </script> <% include partials/tail.ejs %>
