@@ -874,6 +874,15 @@ p {
     opacity: 1;
   }
 }
+.profile-interests {
+  display: flex;
+  flex-direction: column;
+}
+
+button.danger {
+  height: 40px;
+}
+
 .main-nav {
   position: fixed;
   bottom: 0;
@@ -911,6 +920,7 @@ p {
   margin-top: -0.25em;
   position: relative;
   z-index: 1;
+  object-fit: cover;
 }
 
 .lastLogIn {
