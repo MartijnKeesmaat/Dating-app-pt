@@ -1,25 +1,6 @@
 /* Fonts */
 
-@font-face {
-  font-family: 'Avenir';
-  font-style: normal;
-  font-weight: 300;
-  src: url('fonts/avr-rg.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Avenir';
-  font-style: normal;
-  font-weight: 500;
-  src: url('fonts/avr-md.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Avenir';
-  font-style: normal;
-  font-weight: 700;
-  src: url('fonts/avr-bk.otf') format('opentype');
-}
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,900");
 
 @font-face {
   font-family: 'Nevis';
@@ -140,6 +121,35 @@
   }
 }
 
+@keyframes register-bounce {
+  0% {
+    transform: translateY(-180vh);
+  }
+
+  75% {
+    transform: translateY(0.25em);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes register-hide {
+  0% {
+  transform: translateY(0);
+  }
+  
+  25% {
+  transform: translateY(0.25em);
+  }
+
+  100% {
+  transform: translateY(-180vh);
+  }
+}
+
+
 /* ---------- */
 
 * { box-sizing: border-box }
@@ -164,13 +174,14 @@ input, textarea { width: 100% }
 /*#region COMMON STYLES*/
 
 body {
-  background: radial-gradient(#6B359C, #2A2142);
-  font-family: Avenir, sans-serif;
+  background: radial-gradient(#70B3EE, #6B359C);
+  font-family: Montserrat, sans-serif;
   margin: 0;
+  transition: background 2.5s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Avenir, sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 a {
@@ -181,7 +192,7 @@ a {
 }
 
 a:hover {
-  color: #70B3EE;
+  color: white;
 }
 
 input:focus,
@@ -220,31 +231,27 @@ margin-left: -1em;
 margin-top: -0.3em;}
 
 nav {
-  display: grid;
-  grid-template-columns: 75% 25%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #efefef;
-  height: 4em;
   background-color: transparent;
-  padding: 0 7.5em;
-  margin-top: 1.25em;
+  margin: 1.25em 1em 0 1em;
 }
 
-nav ul {
+nav div {
   list-style-type: none;
   display: flex;
   align-items: center;
 }
 
-nav ul li:first-child {
-  margin-right: 2.5em;
+nav div a:first-child {
+  margin-right: 1.5em;
 }
 
 nav > a {
   font-family: Nevis, sans-serif;
   font-weight: 700;
-  font-size: 2.25em;
+  font-size: 1.75em;
   color: white;
   animation: none;
   transition: animation 1s ease;
@@ -254,18 +261,26 @@ nav > a:hover {
   animation: disco-beat 2.5s ease infinite;
 }
 
-nav ul li:first-of-type a {
+nav div a:first-of-type {
   color: #fff;
-  padding: 0.75em 1em;
+  padding: 0.65em 0.75em;
   border: 0.1em solid #fff;
   border-radius: 0.25em;
   background-color: none;
   transition: color .2s ease-in, background-color .3s ease;
 }
 
-nav ul li:first-of-type a:hover {
+nav div a:first-of-type:hover {
   background-color: white;
-  color: #FF575C;
+  color: #70B3EE;
+}
+
+nav div a:last-of-type {
+  color: #FD8D81;
+}
+
+nav div a:last-of-type:hover {
+  color: white;
 }
 
 .nav-title-white {
@@ -410,6 +425,10 @@ nav ul li:first-of-type a:hover {
   align-items: center;
 }
 
+.register {
+  margin: 2.5em 0;
+}
+
 .login-tile {
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
   -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
@@ -420,13 +439,13 @@ nav ul li:first-of-type a:hover {
   justify-items: center;
 }
 
-.show {
+main > section.show {
   animation: login-bounce 1.5s ease;
 }
 
-.hide {
+main > section.hide {
   animation: login-hide 1s ease;
-  transform: translateY(-100vh);
+  transform: translateY(-120vh);
 }
 
 .login-tile-photo {
@@ -446,21 +465,27 @@ main section div > section {
   max-width: 30em;
 }
 
+.login-form {
+  margin: 1.5em;
+  min-width: 14em;
+  max-width: 22em;
+}
+
 .login-form button {
   display: block;
   width: 100%;
-  background-color: #FF575C;
+  background-color: #FD8D81;
   border-radius: 0.25em;
   color: white;
   padding: 0.75em;
-  font-family: Avenir, sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 700;
   cursor: pointer;
   transition: background .15s ease-in;
 }
 
 .login-form button:hover {
-  background-color: #FF7F72;
+  background-color: #FFA49A;
 }
 
 .login-form form {
@@ -468,13 +493,14 @@ main section div > section {
 }
 
 main section h1 {
+  font-weight: 700;
   font-size: 1.75em;
   color: #2A2142;
   text-align: center;
 }
 
 .login-form input {
-  font-family: Avenir, sans-serif;
+  font-family: Montserrat, sans-serif;
   font-weight: 300;
   color: #4C4C4C;
   border-bottom: 0.15em solid #6A777B;
@@ -673,3 +699,47 @@ footer small {
 }
 
 /*#endregion REMOVE*/
+
+/* Media queries */
+
+@media (min-width: 22.5em) and (max-width: 60em)  {
+  nav > a {
+    font-size: 2em;
+  }
+}
+
+@media (min-width: 30em) and (max-width: 60em) {
+
+  nav {
+    padding: 0 2.5em;
+  }
+}
+
+@media (min-width: 60em) {
+
+  nav > a {
+    font-size: 2.25em;
+  }
+
+  nav ul li:first-of-type a {
+    padding: 0.75em 1em;
+  }
+
+  nav {
+    padding: 0 7.5em;
+    margin: 0.5em;
+    max-width: 99em;
+  }
+  
+  nav ul li:first-child {
+    margin-right: 2.5em;
+  }
+}
+
+@media (min-width: 100em) {
+  
+  nav {
+    margin: auto;
+    padding: 0.5em 7.5em;
+  }
+}

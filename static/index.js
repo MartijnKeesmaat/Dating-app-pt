@@ -1,4 +1,7 @@
 let remove = document.getElementById('js-remove');
+let loginForm = document.querySelector('.login-tile');
+let mainRegister = document.querySelector('main.register');
+let registerForm = document.querySelector('main.register section.login-tile');
 window.addEventListener('load', showLogin);
 document.addEventListener('DOMContentLoaded', hideLogin);
 
@@ -24,7 +27,12 @@ function onremove(ev) {
 }
 
 function showLogin() {
-  document.querySelector('.login-tile').classList.add('show');
+  if (mainRegister) {
+    registerForm.classList.add('show');
+  }
+  else {
+    loginForm.classList.add('show');
+  }
 }
 
 function hideLogin() {
@@ -32,7 +40,6 @@ function hideLogin() {
   for (let a of lastTwoNavLinks) {
     // source: https://christopheraue.net/design/fading-pages-on-load-and-unload
     a.addEventListener('click', function(event) {
-      let loginForm = document.querySelector('.login-tile');
       let link = event.currentTarget;
       let listener = function() {
         window.location = link.href;
@@ -40,8 +47,14 @@ function hideLogin() {
       };
       loginForm.addEventListener('animationend', listener);
       event.preventDefault();
-      loginForm.classList.remove('show');
-      loginForm.classList.add('hide');
+      if (mainRegister) {
+        registerForm.classList.remove('show');
+        registerForm.classList.add('hide');
+      }
+      else {
+        loginForm.classList.remove('show');
+        loginForm.classList.add('hide');
+      }
     });
   }
 }
