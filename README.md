@@ -3,7 +3,7 @@ Find your muse with Muze. Discover whose music taste match yours and go on a dat
 
 Muze lets you find people who listen to the same music you do. Just filter a music genre, see whose favorite track finds your tune, test each others knowledge, and start the talk. 
 
-Visit Muze to [learn more](https://calm-wave-52017.herokuapp.com) or find your muse and [**sign up**](https://calm-wave-52017.herokuapp.com/register).
+Visit Muze to [learn more](https://dating-app-pt.herokuapp.com/login) or find your muse and [**sign up**](https://calm-wave-52017.herokuapp.com/register).
 
 ## Features
 
