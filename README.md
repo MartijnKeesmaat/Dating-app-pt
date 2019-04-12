@@ -1,7 +1,7 @@
 # Muze
 Find your muse with Muze. Discover whose music taste match yours and go on a date to dance the night away.
 
-![](https://i.gyazo.com/6e0108a5368ad0a7703f754d213d4ed8.gif)
+![](https://github.com/MartijnKeesmaat/Dating-app-pt/blob/master/wiki/home-demo.gif?raw=true)
 
 Muze lets you find people who listen to the same music you do. Just filter a music genre, see whose favorite track finds your tune, test each others knowledge, and start the talk. 
 
