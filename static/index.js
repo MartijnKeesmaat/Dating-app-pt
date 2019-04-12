@@ -36,7 +36,7 @@ function showLogin() {
 }
 
 function hideLogin() {
-  let lastTwoNavLinks = document.querySelectorAll('nav ul a');
+  let lastTwoNavLinks = document.querySelectorAll('nav div a');
   for (let a of lastTwoNavLinks) {
     // source: https://christopheraue.net/design/fading-pages-on-load-and-unload
     a.addEventListener('click', function(event) {
