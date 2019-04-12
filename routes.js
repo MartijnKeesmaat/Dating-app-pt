@@ -18,12 +18,11 @@ mongo.MongoClient.connect(url, {useNewUrlParser: true}, function(err, client) {
   db = client.db(process.env.DB_NAME);
 });
 
-exports.home = function(req, res) {
+exports.home = function(req, res, data) {
   // Check value in session variable
   if (!req.session.isAuthenticated) {
     res.redirect('/login');
   } else {
-    console.log(req.session.user);
     db.collection('profile').find().toArray(done);
     function done(err, data) {
       res.render('home.ejs', {
@@ -32,30 +31,7 @@ exports.home = function(req, res) {
         login: req.session.login,
         user: req.session.user,
         iceBreakerData: {images: []},
-      });
-    }
-  }
-};
 
-exports.profile = function(req, res, next) {
-  const id = req.params.id;
-  db.collection('profile').findOne({
-    _id: mongo.ObjectID(id),
-  }, done);
-
-  db.collection('profile').findOne({
-    _id: mongo.ObjectID(id),
-  }, done);
-
-  function done(err, data) {
-    if (err) {
-      next(err);
-    } else {
-      res.render('profile.ejs', {
-        data: data,
-        isAuthenticated: req.session.isAuthenticated,
-        login: req.session.login,
-        user: req.session.user,
       });
     }
   }
@@ -94,8 +70,30 @@ exports.form = function(req, res) {
       function user(err, data) {
         req.session.isAuthenticated = true;
         req.session.user = data;
+        login: req.session.login,
         res.redirect('/');
       }
+    }
+  }
+};
+
+exports.profile = function(req, res, next) {
+  const id = req.params.id;
+  db.collection('profile').findOne({
+    _id: mongo.ObjectID(id),
+  }, done);
+
+  function done(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.render('profile.ejs', {
+        data: data,
+        isAuthenticated: req.session.isAuthenticated,
+        login: req.session.login,
+        user: req.session.user
+
+      });
     }
   }
 };
@@ -127,6 +125,10 @@ exports.loginForm = function(req, res) {
       res.redirect('/');
     } else {
       sess.isAuthenticated = false;
+      req.session.login = {
+        firstname: data.firstname,
+        id: data.id,
+      };
       res.redirect('/login');
     }
   }
@@ -144,10 +146,7 @@ exports.iceBreaker = function(req, res) {
       `/img/icebreaker/${req.body.q2}.jpg`,
       `/img/icebreaker/${req.body.q3}.jpg`
   );
-  // console.log(req.session.user);
-  // res.render('home', {
-  //   // user: req.session.user,
-  // });
+
 
   if (!req.session.isAuthenticated) {
     res.redirect('/login');
@@ -163,20 +162,7 @@ exports.iceBreaker = function(req, res) {
       });
     }
   }
-  // db.collection('profile').findOne({
-  //   email: email,
-  // }, done);
 
-  // function done(err, data) {
-  //   if (data && data.password === req.body.password) {
-  //     req.session.user = data;
-  //     sess.isAuthenticated = true;
-  //     res.redirect('/');
-  //   } else {
-  //     sess.isAuthenticated = false;
-  //   }
-  // }
-  // res.redirect('/');
 };
 
 exports.logout = function(req, res) {

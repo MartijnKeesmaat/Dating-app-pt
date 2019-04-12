@@ -12,18 +12,21 @@
     <img class="sessionImage" src="img/musician.jpg" alt="musician">
 <%  }%>
 
-<% if (login.firstname == login.firstname) {%>
-  <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= login.firstname%></strong> </a>
+<% if (user.firstname == user.firstname) {%>
+  <a class="lastLogIn" href="/<%= user._id %>">Welcome <strong><%= user.firstname%></strong> </a>
 <%}%>
 </div>
 <!--Body-->
 <main class="profile-main no-js">
     <div class="icebreaker-overlay icebreaker__close"></div>
     <section class="profile-tile">
-        <% if (data.profile) { %>
+        <% if (data.profile !== null) { %>
         <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
+        <% }
+        else {%>
 
-        <% } %>
+          <img class="profile-picture" src="img/musician.jpg" alt="musician">
+      <%  }%>
         <div class="profile-intro__right">
             <img src="/img/icons/heart.svg" alt="">
             <img src="/img/icons/chat.svg" alt="" class="icebreaker__open">
@@ -56,11 +59,11 @@
             </div>
             <% } %>
 
-            
+
             <% if (data.specialize) { %>
             <div class="specialize">
                 <p>Specialize:</p>
-                <p><%= data.specialize %></p>    
+                <p><%= data.specialize %></p>
             </div>
             <% } %>
 
