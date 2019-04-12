@@ -20,10 +20,13 @@
 <main class="profile-main no-js">
     <div class="icebreaker-overlay icebreaker__close"></div>
     <section class="profile-tile">
-        <% if (data.profile) { %>
+        <% if (data.profile !== null) { %>
         <img alt="<%= data.name %>" class="profile-picture" src="/upload/<%= data.profile %>">
+        <% }
+        else {%>
 
-        <% } %>
+          <img class="profile-picture" src="img/musician.jpg" alt="musician">
+      <%  }%>
         <div class="profile-intro__right">
             <img src="/img/icons/heart.svg" alt="">
             <img src="/img/icons/chat.svg" alt="" class="icebreaker__open">
