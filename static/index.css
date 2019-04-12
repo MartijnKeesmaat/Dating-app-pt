@@ -95,7 +95,7 @@
 
 @keyframes login-bounce {
   0% {
-  transform: translateY(-120vh);
+  transform: translateY(-130vh);
   }
 
   75% {
@@ -117,35 +117,7 @@
   }
 
   100% {
-  transform: translateY(-120vh);
-  }
-}
-
-@keyframes register-bounce {
-  0% {
-    transform: translateY(-180vh);
-  }
-
-  75% {
-    transform: translateY(0.25em);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes register-hide {
-  0% {
-  transform: translateY(0);
-  }
-  
-  25% {
-  transform: translateY(0.25em);
-  }
-
-  100% {
-  transform: translateY(-180vh);
+  transform: translateY(-130vh);
   }
 }
 
@@ -445,7 +417,7 @@ main > section.show {
 
 main > section.hide {
   animation: login-hide 1s ease;
-  transform: translateY(-120vh);
+  transform: translateY(-130vh);
 }
 
 .login-tile-photo {
