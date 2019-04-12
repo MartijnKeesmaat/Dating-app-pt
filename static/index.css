@@ -554,7 +554,20 @@ label > select{
   height: 3em;
 }
 
-label > p > input[type="radio"] {
+label:nth-of-type(3) {
+  display: flex;
+  flex-direction: column;
+}
+
+label:nth-of-type(3) label:last-of-type {
+  flex-direction: row;
+}
+
+label:nth-of-type(3) label:last-of-type input {
+  margin: 0em;
+}
+
+label > input[type="radio"] {
   width: 10%;
 }
 
