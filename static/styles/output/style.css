@@ -570,13 +570,20 @@ p {
   display: inline-block;
 }
 .profile-intro__right {
+  display: flex;
   min-width: 138px;
 }
 .profile-intro__right img {
   height: 25px;
   margin-right: 15px;
 }
-.profile-intro__right img:last-child {
+.profile-intro__right .match-status {
+  font-weight: 300;
+  font-size: 0.7rem;
+  padding: 0.2em;
+  padding-top: 4px;
+  border: solid var(--color-main) 0.2em;
+  border-radius: 1em;
   margin-right: 0;
 }
 
@@ -1492,7 +1499,9 @@ button.danger {
   cursor: pointer;
 }
 .js-enabled .icebreaker__inner form fieldset label input[type=radio] {
-  display: none;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
 }
 .js-enabled .icebreaker__inner form fieldset label img {
   max-width: 100%;
