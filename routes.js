@@ -134,7 +134,7 @@ exports.loginForm = function(req, res) {
   }
 };
 
-exports.iceBreaker = function(req, res) {
+/*exports.iceBreaker = function(req, res) {
   const sess = req.session;
   const iceBreakerData = {
     images: {},
@@ -163,6 +163,25 @@ exports.iceBreaker = function(req, res) {
     }
   }
 
+};*/
+
+exports.iceBreaker = function(req, res) {
+  const appname = req.session.user.firstname + ' ' + req.session.user.lastname;
+  const answers = [req.body.one, req.body.two, req.body.three, req.body.four, req.body.five];
+  db.collection('matches').insertOne({
+    applicant: appname,
+    //receiver: data.firstname + ' ' + data.lastname,
+    answers: answers,
+  }, done);
+
+  function done(err, data) {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/');
+      // confirm request
+    }
+  }
 };
 
 exports.logout = function(req, res) {
@@ -171,7 +190,7 @@ exports.logout = function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.redirect('/login');
+      res.render('/profile.ejs');
     }
   });
 };
