@@ -79,67 +79,68 @@
             <h2>Ice-breaker</h2>
             <p class="ice-sub">Which one do you prefer</p>
             <form action="/icebreaker" method="post">
-                <div class="icebreaker-option">or</div>
                 <fieldset class="active">
                     <legend>Choose one</legend>
-                    <label for="banjo">
-                        <input class="ice-q" type="radio" name="q1" value="banjo" id="banjo" />
-                        <img src="/img/icebreaker/banjo.jpg" alt="banjo" />
+                    <label for="piano">
+                        <input class="ice-q" type="radio" name="one" value="piano" id="piano">
+                        <img src="/img/icebreaker/piano.jpg" alt="piano">
                     </label>
-                    <label for="gituar">
-                        <input class="ice-q" type="radio" name="q1" value="gituar" id="gituar" />
-                        <img src="/img/icebreaker/gituar.jpg" alt="gituar" />
+                    <label for="guitar">
+                        <input class="ice-q" type="radio" name="one" value="guitar" id="guitar">
+                        <img src="/img/icebreaker/gituar.jpg" alt="guitar">
                     </label>
                 </fieldset>
                 <fieldset>
                     <legend>Choose one</legend>
                     <label for="outside">
-                        <input class="ice-q" type="radio" name="q2" value="outside" id="outside" />
-                        <img src="/img/icebreaker/outside.jpg" alt="outside" />
+                        <input class="ice-q" type="radio" name="two" value="outside" id="outside">
+                        <img src="/img/icebreaker/outside.jpg" alt="outside">
                     </label>
                     <label for="party">
-                        <input class="ice-q" type="radio" name="q2" value="party" id="party" />
-                        <img src="/img/icebreaker/party.jpg" alt="party" />
+                        <input class="ice-q" type="radio" name="two" value="party" id="concert">
+                        <img src="/img/icebreaker/party.jpg" alt="concert">
                     </label>
                 </fieldset>
                 <fieldset>
                     <legend>Choose one</legend>
                     <label for="vynil">
-                        <input class="ice-q" type="radio" name="q3" value="vynil" id="vynil" />
-                        <img src="/img/icebreaker/vynil.jpg" alt="vynil" />
+                        <input class="ice-q" type="radio" name="three" value="vynil" id="vynil">
+                        <img src="/img/icebreaker/vynil.jpg" alt="vynil">
                     </label>
-                    <label for="phone">
-                        <input class="ice-q" type="radio" name="q3" value="phone" id="phone" />
-                        <img src="/img/icebreaker/phone.jpg" alt="phone" />
-                    </label>
-                </fieldset>
-                <fieldset>
-                    <legend>Choose one</legend>
-                    <label for="producer">
-                        <input class="ice-q" type="radio" name="q4" value="producer" id="producer" />
-                        <img src="/img/icebreaker/producer.jpg" alt="producer" />
-                    </label>
-                    <label for="switches">
-                        <input class="ice-q" type="radio" name="q4" value="switches" id="switches" />
-                        <img src="/img/icebreaker/switches.jpg" alt="switches" />
+                    <label for="digital">
+                        <input class="ice-q" type="radio" name="three" value="digital" id="digital">
+                        <img src="/img/icebreaker/phone.jpg" alt="digital">
                     </label>
                 </fieldset>
                 <fieldset>
                     <legend>Choose one</legend>
-                    <label for="drum">
-                        <input class="ice-q" type="radio" name="q5" value="drum" id="drum" />
-                        <img src="/img/icebreaker/drum.jpg" alt="drum" />
+                    <label for="computer">
+                        <input class="ice-q" type="radio" name="four" value="computer" id="computer">
+                        <img src="/img/icebreaker/producer.jpg" alt="producer">
                     </label>
-                    <label for="orchestra">
-                        <input class="ice-q" type="radio" name="q5" value="orchestra" id="orchestra" />
-                        <img src="/img/icebreaker/orchestra.jpg" alt="orchestra" />
+                    <label for="analog">
+                        <input class="ice-q" type="radio" name="four" value="analog" id="analog">
+                        <img src="/img/icebreaker/switches.jpg" alt="switches">
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Choose one</legend>
+                    <label>
+                        <label for="rock">
+                            <input class="ice-q" type="radio" name="five" value="rock" id="rock">
+                            <img src="/img/icebreaker/drum.jpg" alt="drums">
+                        </label>
+                        <label for="classic">
+                            <input class="ice-q" type="radio" name="five" value="classic" id="classic">
+                            <img src="/img/icebreaker/orchestra.jpg" alt="orchestra">
+                        </label>
                     </label>
                 </fieldset>
                 <fieldset>
                     <p class="feedback">Je hebt alle vragen beantwoord. Jouw ijsbreker zal worden verstuurd naar
-                        <a href="#">Amelia Cabal</a>
+                        <%= data.firstname + ' ' + data.lastname %>
                     </p>
-                    <input type="submit" value="Verstuur ice-breaker" />
+                    <input type="submit" value="Verstuur ice-breaker">
                 </fieldset>
             </form><button class="icebreaker__back icebreaker__close">Ga terug</button>
         </div>
